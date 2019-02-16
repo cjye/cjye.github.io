@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="//hexo.dulada.com/"/>
-  <updated>2019-02-12T01:23:04.700Z</updated>
+  <updated>2019-02-16T12:03:35.137Z</updated>
   <id>//hexo.dulada.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="//hexo.dulada.com/2019/02/16/20190216/"/>
+    <id>//hexo.dulada.com/2019/02/16/20190216/</id>
+    <published>2019-02-16T12:00:00.000Z</published>
+    <updated>2019-02-16T12:03:35.137Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个博客，终于还是安排上了…</p><p>间歇性拿起放下，折腾一周…</p><p>一个农民，通过自身努力终于分到了一块地，不再需要在地主的土地上创造流量价值时，于是翻身作主的他可以宣告说：Hello World。当然这个农民确切来说是个码农。</p><p>感谢Litten提供的yilia主题。我很喜欢这种色调。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这个博客，终于还是安排上了…&lt;/p&gt;
+&lt;p&gt;间歇性拿起放下，折腾一周…&lt;/p&gt;
+&lt;p&gt;一个农民，通过自身努力终于分到了一块地，不再需要在地主的土地上创造流量价值时，于是翻身作主的他可以宣告说：Hello World。当然这个农民确切来说是个码农。&lt;/p&gt;
+&lt;p&gt;感谢Litt
+      
+    
+    </summary>
+    
+    
+      <category term="杂谈" scheme="//hexo.dulada.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+      <category term="octopress" scheme="//hexo.dulada.com/tags/octopress/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
