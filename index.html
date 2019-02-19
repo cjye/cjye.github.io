@@ -5,7 +5,7 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="//hexo.dulada.com">
+  <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Arley的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
@@ -29,7 +29,7 @@
 <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Arley的博客">
-<meta property="og:url" content="//hexo.dulada.com/index.html">
+<meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="Arley的博客">
 <meta property="og:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
 <meta property="og:locale" content="default">
@@ -62,6 +62,155 @@ var _hmt = _hmt || [];
 
 
 </head>
+<style>
+  .music-btn {
+    width: 48px;
+    height: auto;
+    overflow: hidden;
+    position: fixed;
+    left: 3%;
+    bottom: 7%;
+    z-index: 99999;
+    opacity: 0.5;
+  }
+
+  .music-btn>span {
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    width: 48px;
+    height: auto;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #0090dd;
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+  }
+
+  #bgm {
+    display: none
+  }
+
+  /* .music-btn>span:nth-child(1) {
+        background-image: url(http://res.dulada.com/hexo/play.png)
+    }
+    
+    .music-btn>span:nth-child(2) {
+        background-image: url(http://res.dulada.com/hexo/pause.png)
+    }
+    
+    .music-btn>span:nth-child(3) {
+        background-image: url(http://res.dulada.com/hexo/next.png)
+    }
+    
+    .music-btn>span:nth-child(4) {
+        background-image: url(http://res.dulada.com/hexo/rest.png)
+    } */
+</style>
+<div class="music-btn">
+  <span class="bgm_btn_play">播放</span>
+  <span class="bgm_btn_stop">暂停</span>
+  <span class="bgm_btn_next">下一首</span>
+  <span class="bgm_btn_rest">停止</span>
+</div>
+<audio value="4" id="bgm" controls>
+</audio>
+<script>
+  window.onload = function () {
+    //多首歌曲播放效果以及基本的按钮定义
+    var bgm_echo = document.querySelector('.bgm_echo');
+    var bgm_btn_play = document.querySelector('.bgm_btn_play');
+    var bgm_btn_stop = document.querySelector('.bgm_btn_stop');
+    var bgm_btn_next = document.querySelector('.bgm_btn_next');
+    var bgm = document.getElementById('bgm');
+    //播放开始
+    bgm_btn_play.onclick = function () {
+      bgm.play();
+    }
+    //播放暂停
+    bgm_btn_stop.onclick = function () {
+      bgm.pause();
+    }
+    //初始化播放列表【如果有播放记录，则调用】
+    if (localStorage.getItem('bgm_gds') != null) {
+      bgm.setAttribute('value', localStorage.getItem('bgm_gds'));
+      bgm.innerHTML = '<source src="http://res.dulada.com/hexo/' + localStorage.getItem('bgm_gds') + '.mp3" type="audio/mpeg">';
+      //					bgm_echo.innerHTML = '当前播放第' + localStorage.getItem('bgm_gds') + '首歌曲';
+    } else {
+      bgm.setAttribute('value', 1);
+      bgm.innerHTML = '<source src="http://res.dulada.com/hexo/1.mp3" type="audio/mpeg">';
+      //					bgm_echo.innerHTML = '当前播放第1首歌曲';
+    }
+    //下一首歌曲切换
+    bgm_btn_next.onclick = function () {
+      var bgm_gds = bgm.getAttribute('value');
+      if (bgm_gds < 4) {
+        bgm_gds++;
+      } else {
+        bgm_gds = 1;
+      }
+      bgm.innerHTML = '<source src="http://res.dulada.com/hexo/' + bgm_gds + '.mp3" type="audio/mpeg">';
+      //					bgm_echo.innerHTML = '当前播放第' + bgm_gds + '首歌曲';
+      bgm.load();
+      bgm.play();
+      //切换歌曲后，写入代码
+      bgm.setAttribute('value', bgm_gds);
+      localStorage.setItem('bgm_gds', bgm_gds);
+    }
+    //音乐播放完成操作
+    bgm.onended = function () {
+      bgm_btn_next.click();
+    };
+    //重置所有音频记忆
+    var bgm_btn_rest = document.querySelector('.bgm_btn_rest');
+    bgm_btn_rest.onclick = function () {
+      //停止音乐
+      bgm.pause();
+      setTimeout(function () {
+        //删除记录
+        localStorage.removeItem('bgm_gds');
+        localStorage.removeItem('bgm_time');
+        //重新启动
+        bgm.setAttribute('value', 1);
+        bgm.innerHTML = '<source src="http://res.dulada.com/hexo/1.mp3" type="audio/mpeg">';
+        //						bgm_echo.innerHTML = '当前播放第1首歌曲';
+        //重新播放
+        bgm.load();
+        bgm.play();
+      }, 200);
+    }
+
+    //音轨补偿代码
+    setTimeout(function () {
+      //获取DOM
+      var bgm = document.getElementById('bgm');
+      //如果发现有本地存储，则进行音轨补偿
+      if (localStorage.getItem('bgm_time') != null) {
+        bgm.currentTime = localStorage.getItem('bgm_time');
+        //启动播放音乐
+        bgm.play();
+      }
+      //不断循环记录播放进度
+      window.setInterval(function () {
+        //检测是否支持本地存储
+        if (typeof (Storage) !== 'undefined') {
+          //写入BGM播放进度
+          localStorage.setItem('bgm_time', bgm.currentTime);
+        } else {
+          //提示浏览器不支持
+          var doc_body = document.querySelector('body');
+          doc_body.innerHTML = '<h1>抱歉！您的浏览器过旧，请更换新的浏览器再试</h1>';
+        }
+      }, 100);
+      //初始化启动BGM
+      bgm.play();
+    }, 800);
+  }
+</script>
+
 </html>
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -222,6 +371,7 @@ var _hmt = _hmt || [];
 <p>间歇性拿起放下，折腾一周…</p>
 <p>一个农民，通过自身努力终于分到了一块地，不再需要在地主的土地上创造流量价值时，于是翻身作主的他可以宣告说：Hello World。当然这个农民确切来说是个码农。</p>
 <p>感谢Litten提供的yilia主题。我很喜欢这种色调。</p>
+<p>然后之前各处的笔记都可以转移过来了，有道云居多，在此感谢有道云笔记~~~</p>
 
       
 
@@ -236,10 +386,6 @@ var _hmt = _hmt || [];
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">octopress</a>
         		</li>
       		
 		</ul>
@@ -280,47 +426,22 @@ var _hmt = _hmt || [];
 
 
 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "bOJwV7Fp9sTeU13FHU8Hn3JA-gzGzoHsz",
-            app_key: "TReyM4HINmTQqhqgFzMax2Ix",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-    </section>
-  
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-php-Advanced-combat-1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/12/hello-world/">Hello World</a>
+      <a class="article-title" href="/2018/01/11/php-Advanced-combat-1/">1.验证码实例化</a>
     </h1>
   
 
         
-        <a href="/2019/02/12/hello-world/" class="archive-article-date">
-  	<time datetime="2019-02-12T01:23:04.699Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-12</time>
+        <a href="/2018/01/11/php-Advanced-combat-1/" class="archive-article-date">
+  	<time datetime="2018-01-11T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-11</time>
 </a>
         
         
@@ -329,16 +450,14 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h4 id="封装类原则"><a href="#封装类原则" class="headerlink" title="封装类原则"></a>封装类原则</h4><ol>
+<li>对外公开的方法只有一个，只要调用这个方法，就可以将验证码显示到浏览器，其他的为这个类服务的方法设置为protected，供子类来继承和重写</li>
+<li>有些变量在该类里面会被反复的使用到，我们将其保存为成员属性，将不用的成员属性设置为protected</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">验证码个数 $number;</span><br><span class="line">验证码类型 $codeType;</span><br><span class="line">验证码图像的宽度 $width;</span><br><span class="line">验证码图像的高度 $height;</span><br><span class="line">验证码 $code;</span><br><span class="line">图像资源 $image;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/01/11/php-Advanced-combat-1/#more">more >></a>
+        
       
 
       
@@ -346,11 +465,22 @@ var _hmt = _hmt || [];
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/02/12/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/01/11/php-Advanced-combat-1/">展开全文 >></a>
         </p>
       
 
@@ -381,33 +511,675 @@ var _hmt = _hmt || [];
 
 
 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "bOJwV7Fp9sTeU13FHU8Hn3JA-gzGzoHsz",
-            app_key: "TReyM4HINmTQqhqgFzMax2Ix",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-    </section>
-  
 
   
+    <article id="post-php-high-level-syntax-6" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/11/php-high-level-syntax-6/">6.trait与命名空间</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/11/php-high-level-syntax-6/" class="archive-article-date">
+  	<time datetime="2017-12-11T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-11</time>
+</a>
+        
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="trait"><a href="#trait" class="headerlink" title="trait"></a>trait</h4><p>用来模拟实现多继承的<br>instance：实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">定义trait 要以trait关键字开头，然后里面的写法和类的写法一模一样</span><br><span class="line">一般情况下，在trait中我们不加成员属性，只有成员方法</span><br><span class="line">trait 不能实例化</span><br><span class="line">trait 中的方法想让（子类）来使用，该方法必须是public</span><br><span class="line">trait 可以嵌套trait</span><br></pre></td></tr></table></figure></p>
+        
+          <a class="article-more-a" href="/2017/12/11/php-high-level-syntax-6/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/11/php-high-level-syntax-6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+  
+    <article id="post-php-high-level-syntax-5" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/10/php-high-level-syntax-5/">5.抽象类与接口</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/10/php-high-level-syntax-5/" class="archive-article-date">
+  	<time datetime="2017-12-10T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-10</time>
+</a>
+        
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line">oracle</span><br><span class="line">sqlserver</span><br><span class="line">db2</span><br><span class="line">通用的东西放在一块，写一个父类</span><br><span class="line">不同的东西各自的子类自己来实现</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/12/10/php-high-level-syntax-5/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/10/php-high-level-syntax-5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+  
+    <article id="post-php-high-level-syntax-4" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/09/php-high-level-syntax-4/">4.常量、静态属性、静态方法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/09/php-high-level-syntax-4/" class="archive-article-date">
+  	<time datetime="2017-12-09T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
+</a>
+        
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>常量</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const   PI = 3.14;</span><br><span class="line">调用方法：</span><br><span class="line">    类外部：  类名::常量名 （或者 $obj::常量名）</span><br><span class="line">    类内部：  self::常量名  （或者 $this::常量名）</span><br><span class="line">self ： 就是当前类名</span><br><span class="line">在类外部可以使用define和const定义常量。但是在类内部只能使用const定义常量</span><br><span class="line">【注】常量前面不能加修饰符</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/12/09/php-high-level-syntax-4/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/09/php-high-level-syntax-4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+  
+    <article id="post-php-high-level-syntax-3" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/08/php-high-level-syntax-3/">3.魔术方法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/08/php-high-level-syntax-3/" class="archive-article-date">
+  	<time datetime="2017-12-08T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-08</time>
+</a>
+        
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="系统在特定的时机自动调用的方法"><a href="#系统在特定的时机自动调用的方法" class="headerlink" title="系统在特定的时机自动调用的方法"></a>系统在特定的时机自动调用的方法</h4><ol>
+<li>常用的魔术方法</li>
+</ol>
+<ul>
+<li>get /set<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__get </span><br><span class="line">    触发时机：对象在外部访问私有成员或者受保护的属性时调用</span><br><span class="line">    该方法有一个参数：参数就是属性名</span><br><span class="line">__set</span><br><span class="line">    触发时机：对象在外部设置私有或者受保护成员值得时候调用</span><br><span class="line">    该方法有两个参数：</span><br><span class="line">    参数1：成员的属性名</span><br><span class="line">    参数2：要设置的值</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2017/12/08/php-high-level-syntax-3/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/08/php-high-level-syntax-3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+  
+    <article id="post-php-high-level-syntax-2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/07/php-high-level-syntax-2/">2.继承</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/07/php-high-level-syntax-2/" class="archive-article-date">
+  	<time datetime="2017-12-07T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-07</time>
+</a>
+        
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><h6 id="认识理解"><a href="#认识理解" class="headerlink" title="认识理解"></a>认识理解</h6><p>子类属性多于父类</p>
+<h6 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h6><p>继承  派生<br><br>父类 ==》 子类</p>
+<p>基类 ==》 派生类</p>
+<p>单继承  子类只能有一个父类</p>
+        
+          <a class="article-more-a" href="/2017/12/07/php-high-level-syntax-2/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/07/php-high-level-syntax-2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+  
+    <article id="post-php-high-level-syntax-1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/06/php-high-level-syntax-1/">1.类和对象的概念</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/06/php-high-level-syntax-1/" class="archive-article-date">
+  	<time datetime="2017-12-06T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
+</a>
+        
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="类是抽象的概念，对象才是具体的事物"><a href="#类是抽象的概念，对象才是具体的事物" class="headerlink" title="类是抽象的概念，对象才是具体的事物"></a>类是抽象的概念，对象才是具体的事物</h1><p>人类：抽象的概念；<br>对象：科比、韦德；</p>
+        
+          <a class="article-more-a" href="/2017/12/06/php-high-level-syntax-1/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/06/php-high-level-syntax-1/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+  
+    <article id="post-php-basics-13" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/26/php-basics-13/">13.正则</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/26/php-basics-13/" class="archive-article-date">
+  	<time datetime="2017-11-26T01:18:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-26</time>
+</a>
+        
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h4><h6 id="定界符-推荐使用"><a href="#定界符-推荐使用" class="headerlink" title="定界符 推荐使用//"></a>定界符 推荐使用//</h6><blockquote>
+<p>以下   不能做定界符<br><br>a-z A-Z 0-9 空格 \</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$str = &apos;abede&apos;;</span><br><span class="line"></span><br><span class="line">$pattern = &apos;/abc/&apos;;</span><br><span class="line"></span><br><span class="line">var_dump(preg_match($pattern,$str,$match));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var_dump();</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/11/26/php-basics-13/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/26/php-basics-13/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+  
+    <article id="post-php-basics-12" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/26/php-basics-12/">12.文件上传</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/26/php-basics-12/" class="archive-article-date">
+  	<time datetime="2017-11-26T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-26</time>
+</a>
+        
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h4><h6 id="常见的错误号"><a href="#常见的错误号" class="headerlink" title="常见的错误号"></a>常见的错误号</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">UPLOAD_ERR_OK</span><br><span class="line">其值为 0，没有错误发生，文件上传成功。 </span><br><span class="line">UPLOAD_ERR_INI_SIZE</span><br><span class="line">其值为 1，上传的文件超过了 php.ini 中 upload_max_filesize 选项限制的值。 </span><br><span class="line">UPLOAD_ERR_FORM_SIZE</span><br><span class="line">其值为 2，上传文件的大小超过了 HTML 表单中 MAX_FILE_SIZE 选项指定的值。 </span><br><span class="line">UPLOAD_ERR_PARTIAL</span><br><span class="line">其值为 3，文件只有部分被上传。 </span><br><span class="line">UPLOAD_ERR_NO_FILE</span><br><span class="line">其值为 4，没有文件被上传。 </span><br><span class="line">UPLOAD_ERR_NO_TMP_DIR</span><br><span class="line">其值为 6，找不到临时文件夹。PHP 4.3.10 和 PHP 5.0.3 引进。 </span><br><span class="line">UPLOAD_ERR_CANT_WRITE</span><br><span class="line">其值为 7，文件写入失败。PHP 5.1.0 引进。 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Note: </span><br><span class="line"></span><br><span class="line">以上值在 PHP 4.3.0 之后变成了 PHP 常量。</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2017/11/26/php-basics-12/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/26/php-basics-12/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -468,6 +1240,7 @@ setInterval("createtime()",250);
 
 
     </div>
+    
     <script>
 	var yiliaConfig = {
 		mathjax: false,
@@ -480,7 +1253,7 @@ setInterval("createtime()",250);
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -556,7 +1329,7 @@ mathjax: true
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">octopress</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
             
             <div class="clearfix"></div>
@@ -608,7 +1381,15 @@ mathjax: true
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://github.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>最大聚集地</a>
+              <a href="https://github.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>全球最大的同性恋聚集地</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://gitee.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>国内不错的同性恋聚集地</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://gitee.com/mingleilee" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>假 装 有 友 联</a>
             </li>
           
         </ul>
@@ -693,5 +1474,153 @@ mathjax: true
 
 </div>
   </div>
+  
 </body>
+<!-- <style>
+    .music-btn {
+        width: 48px;
+        height: auto;
+        overflow: hidden;
+        position: fixed;
+        left: 5%;
+        bottom: 7%;
+        z-index: 99999;
+    }
+
+    .music-btn>span {
+        font-size: 14px;
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        width: 48px;
+        height: auto;
+        text-align: center;
+        margin-bottom: 10px;
+        background-color: #0090dd;
+        background-size: 70% 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 10px;
+    }
+#bgm {
+        display: none
+    }
+    /* .music-btn>span:nth-child(1) {
+        background-image: url(http://res.dulada.com/hexo/play.png)
+    }
+    
+    .music-btn>span:nth-child(2) {
+        background-image: url(http://res.dulada.com/hexo/pause.png)
+    }
+    
+    .music-btn>span:nth-child(3) {
+        background-image: url(http://res.dulada.com/hexo/next.png)
+    }
+    
+    .music-btn>span:nth-child(4) {
+        background-image: url(http://res.dulada.com/hexo/rest.png)
+    } */
+
+    
+</style>
+<div class="music-btn">
+    <span class="bgm_btn_play">播放</span>
+    <span class="bgm_btn_stop">暂停</span>
+    <span class="bgm_btn_next">下一首</span>
+    <span class="bgm_btn_rest">停止</span>
+</div>
+<audio value="4" id="bgm" controls>
+</audio>
+<script>
+    window.onload = function () {
+        //多首歌曲播放效果以及基本的按钮定义
+        var bgm_echo = document.querySelector('.bgm_echo');
+        var bgm_btn_play = document.querySelector('.bgm_btn_play');
+        var bgm_btn_stop = document.querySelector('.bgm_btn_stop');
+        var bgm_btn_next = document.querySelector('.bgm_btn_next');
+        var bgm = document.getElementById('bgm');
+        //播放开始
+        bgm_btn_play.onclick = function () {
+            bgm.play();
+        }
+        //播放暂停
+        bgm_btn_stop.onclick = function () {
+            bgm.pause();
+        }
+        //初始化播放列表【如果有播放记录，则调用】
+        if (localStorage.getItem('bgm_gds') != null) {
+            bgm.setAttribute('value', localStorage.getItem('bgm_gds'));
+            bgm.innerHTML = '<source src="http://res.dulada.com/hexo/' + localStorage.getItem('bgm_gds') + '.mp3" type="audio/mpeg">';
+            //					bgm_echo.innerHTML = '当前播放第' + localStorage.getItem('bgm_gds') + '首歌曲';
+        } else {
+            bgm.setAttribute('value', 1);
+            bgm.innerHTML = '<source src="http://res.dulada.com/hexo/1.mp3" type="audio/mpeg">';
+            //					bgm_echo.innerHTML = '当前播放第1首歌曲';
+        }
+        //下一首歌曲切换
+        bgm_btn_next.onclick = function () {
+            var bgm_gds = bgm.getAttribute('value');
+            if (bgm_gds < 4) {
+                bgm_gds++;
+            } else {
+                bgm_gds = 1;
+            }
+            bgm.innerHTML = '<source src="http://res.dulada.com/hexo/' + bgm_gds + '.mp3" type="audio/mpeg">';
+            //					bgm_echo.innerHTML = '当前播放第' + bgm_gds + '首歌曲';
+            bgm.load();
+            bgm.play();
+            //切换歌曲后，写入代码
+            bgm.setAttribute('value', bgm_gds);
+            localStorage.setItem('bgm_gds', bgm_gds);
+        }
+        //音乐播放完成操作
+        bgm.onended = function () {
+            bgm_btn_next.click();
+        };
+        //重置所有音频记忆
+        var bgm_btn_rest = document.querySelector('.bgm_btn_rest');
+        bgm_btn_rest.onclick = function () {
+            //停止音乐
+            bgm.pause();
+            setTimeout(function () {
+                //删除记录
+                localStorage.removeItem('bgm_gds');
+                localStorage.removeItem('bgm_time');
+                //重新启动
+                bgm.setAttribute('value', 1);
+                bgm.innerHTML = '<source src="http://res.dulada.com/hexo/1.mp3" type="audio/mpeg">';
+                //						bgm_echo.innerHTML = '当前播放第1首歌曲';
+                //重新播放
+                bgm.load();
+                bgm.play();
+            }, 200);
+        }
+
+        //音轨补偿代码
+        setTimeout(function () {
+            //获取DOM
+            var bgm = document.getElementById('bgm');
+            //如果发现有本地存储，则进行音轨补偿
+            if (localStorage.getItem('bgm_time') != null) {
+                bgm.currentTime = localStorage.getItem('bgm_time');
+                //启动播放音乐
+                bgm.play();
+            }
+            //不断循环记录播放进度
+            window.setInterval(function () {
+                //检测是否支持本地存储
+                if (typeof (Storage) !== 'undefined') {
+                    //写入BGM播放进度
+                    localStorage.setItem('bgm_time', bgm.currentTime);
+                } else {
+                    //提示浏览器不支持
+                    var doc_body = document.querySelector('body');
+                    doc_body.innerHTML = '<h1>抱歉！您的浏览器过旧，请更换新的浏览器再试</h1>';
+                }
+            }, 100);
+            //初始化启动BGM
+            bgm.play();
+        }, 800);
+    }
+</script> -->
 </html>

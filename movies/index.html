@@ -5,7 +5,7 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="//hexo.dulada.com">
+  <link rel="dns-prefetch" href="http://yoursite.com">
   <title>我的电影 | Arley的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
@@ -29,13 +29,17 @@
 <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta property="og:type" content="website">
 <meta property="og:title" content="我的电影">
-<meta property="og:url" content="//hexo.dulada.com/movies/index.html">
+<meta property="og:url" content="http://yoursite.com/movies/index.html">
 <meta property="og:site_name" content="Arley的博客">
 <meta property="og:description" content="源于生活，高于生活         .hexo-douban-tabs {     margin-bottom: 15px;     margin-top: 15px; }  .hexo-douban-tab {     padding: 5px; }  .hexo-douban-active {     background: #657b83;">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/assets/douban-loading.gif">
+<meta property="og:image" content="http://yoursite.com/assets/douban-loading.gif">
+<meta property="og:image" content="http://yoursite.com/assets/douban-loading.gif">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我的电影">
 <meta name="twitter:description" content="源于生活，高于生活         .hexo-douban-tabs {     margin-bottom: 15px;     margin-top: 15px; }  .hexo-douban-tab {     padding: 5px; }  .hexo-douban-active {     background: #657b83;">
+<meta name="twitter:image" content="http://yoursite.com/assets/douban-loading.gif">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -62,6 +66,155 @@ var _hmt = _hmt || [];
 
 
 </head>
+<style>
+  .music-btn {
+    width: 48px;
+    height: auto;
+    overflow: hidden;
+    position: fixed;
+    left: 3%;
+    bottom: 7%;
+    z-index: 99999;
+    opacity: 0.5;
+  }
+
+  .music-btn>span {
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    width: 48px;
+    height: auto;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #0090dd;
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+  }
+
+  #bgm {
+    display: none
+  }
+
+  /* .music-btn>span:nth-child(1) {
+        background-image: url(http://res.dulada.com/hexo/play.png)
+    }
+    
+    .music-btn>span:nth-child(2) {
+        background-image: url(http://res.dulada.com/hexo/pause.png)
+    }
+    
+    .music-btn>span:nth-child(3) {
+        background-image: url(http://res.dulada.com/hexo/next.png)
+    }
+    
+    .music-btn>span:nth-child(4) {
+        background-image: url(http://res.dulada.com/hexo/rest.png)
+    } */
+</style>
+<div class="music-btn">
+  <span class="bgm_btn_play">播放</span>
+  <span class="bgm_btn_stop">暂停</span>
+  <span class="bgm_btn_next">下一首</span>
+  <span class="bgm_btn_rest">停止</span>
+</div>
+<audio value="4" id="bgm" controls>
+</audio>
+<script>
+  window.onload = function () {
+    //多首歌曲播放效果以及基本的按钮定义
+    var bgm_echo = document.querySelector('.bgm_echo');
+    var bgm_btn_play = document.querySelector('.bgm_btn_play');
+    var bgm_btn_stop = document.querySelector('.bgm_btn_stop');
+    var bgm_btn_next = document.querySelector('.bgm_btn_next');
+    var bgm = document.getElementById('bgm');
+    //播放开始
+    bgm_btn_play.onclick = function () {
+      bgm.play();
+    }
+    //播放暂停
+    bgm_btn_stop.onclick = function () {
+      bgm.pause();
+    }
+    //初始化播放列表【如果有播放记录，则调用】
+    if (localStorage.getItem('bgm_gds') != null) {
+      bgm.setAttribute('value', localStorage.getItem('bgm_gds'));
+      bgm.innerHTML = '<source src="http://res.dulada.com/hexo/' + localStorage.getItem('bgm_gds') + '.mp3" type="audio/mpeg">';
+      //					bgm_echo.innerHTML = '当前播放第' + localStorage.getItem('bgm_gds') + '首歌曲';
+    } else {
+      bgm.setAttribute('value', 1);
+      bgm.innerHTML = '<source src="http://res.dulada.com/hexo/1.mp3" type="audio/mpeg">';
+      //					bgm_echo.innerHTML = '当前播放第1首歌曲';
+    }
+    //下一首歌曲切换
+    bgm_btn_next.onclick = function () {
+      var bgm_gds = bgm.getAttribute('value');
+      if (bgm_gds < 4) {
+        bgm_gds++;
+      } else {
+        bgm_gds = 1;
+      }
+      bgm.innerHTML = '<source src="http://res.dulada.com/hexo/' + bgm_gds + '.mp3" type="audio/mpeg">';
+      //					bgm_echo.innerHTML = '当前播放第' + bgm_gds + '首歌曲';
+      bgm.load();
+      bgm.play();
+      //切换歌曲后，写入代码
+      bgm.setAttribute('value', bgm_gds);
+      localStorage.setItem('bgm_gds', bgm_gds);
+    }
+    //音乐播放完成操作
+    bgm.onended = function () {
+      bgm_btn_next.click();
+    };
+    //重置所有音频记忆
+    var bgm_btn_rest = document.querySelector('.bgm_btn_rest');
+    bgm_btn_rest.onclick = function () {
+      //停止音乐
+      bgm.pause();
+      setTimeout(function () {
+        //删除记录
+        localStorage.removeItem('bgm_gds');
+        localStorage.removeItem('bgm_time');
+        //重新启动
+        bgm.setAttribute('value', 1);
+        bgm.innerHTML = '<source src="http://res.dulada.com/hexo/1.mp3" type="audio/mpeg">';
+        //						bgm_echo.innerHTML = '当前播放第1首歌曲';
+        //重新播放
+        bgm.load();
+        bgm.play();
+      }, 200);
+    }
+
+    //音轨补偿代码
+    setTimeout(function () {
+      //获取DOM
+      var bgm = document.getElementById('bgm');
+      //如果发现有本地存储，则进行音轨补偿
+      if (localStorage.getItem('bgm_time') != null) {
+        bgm.currentTime = localStorage.getItem('bgm_time');
+        //启动播放音乐
+        bgm.play();
+      }
+      //不断循环记录播放进度
+      window.setInterval(function () {
+        //检测是否支持本地存储
+        if (typeof (Storage) !== 'undefined') {
+          //写入BGM播放进度
+          localStorage.setItem('bgm_time', bgm.currentTime);
+        } else {
+          //提示浏览器不支持
+          var doc_body = document.querySelector('body');
+          doc_body.innerHTML = '<h1>抱歉！您的浏览器过旧，请更换新的浏览器再试</h1>';
+        }
+      }, 100);
+      //初始化启动BGM
+      bgm.play();
+    }, 800);
+  }
+</script>
+
 </html>
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -207,7 +360,7 @@ var _hmt = _hmt || [];
 
         
         <a href="/movies/index.html" class="archive-article-date">
-  	<time datetime="2019-02-16T12:04:22.170Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-16</time>
+  	<time datetime="2019-02-19T00:42:19.072Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
 </a>
         
              <span class="archive-article-date">
@@ -310,7 +463,7 @@ var _hmt = _hmt || [];
         (0)</a>
     <a class="hexo-douban-tab" id="hexo-douban-tab3" href="javascript:;" rel="external">
         已看
-        (0)</a>
+        (3)</a>
 </div>
 <div>
     <div id="hexo-douban-item1">
@@ -334,6 +487,45 @@ var _hmt = _hmt || [];
 </div>
     </div>
     <div id="hexo-douban-item3">
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2545472803.jpg" referrerpolicy="no-referrer"></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/26266893/">流浪地球</a>
+        </div>
+        <div class="hexo-douban-meta">2019-02-18 /  科幻 2019 / ★★★★☆ 推荐 </div>
+        <div class="hexo-douban-comments"> 从三体了解到刘大大，流浪地球电影院看最有感觉，就是千万别出戏……别问我为什么😂😂😂</div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2541901817.jpg" referrerpolicy="no-referrer"></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/25986662/">疯狂的外星人</a>
+        </div>
+        <div class="hexo-douban-meta">2019-02-18 /  贺岁 搞笑 / ★★★★★ 力荐 </div>
+        <div class="hexo-douban-comments"> 大年初一看的，最为贺岁档中喜剧来说不错……</div>
+    </div>
+</div>
+
+
+        
+        <div class="hexo-douban-item">
+    <div class="hexo-douban-picture"><img src="/assets/douban-loading.gif" data-src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2542973862.jpg" referrerpolicy="no-referrer"></div>
+    <div class="hexo-douban-info">
+        <div class="hexo-douban-title">
+            <a target="_blank" href="https://movie.douban.com/subject/30163509/">飞驰人生</a>
+        </div>
+        <div class="hexo-douban-meta">2019-02-18 /  贺岁 / ★★★★☆ 推荐 </div>
+        <div class="hexo-douban-comments"> 电影内容怎样没太细看，主要看电影的人好看😂😂😂</div>
+    </div>
+</div>
+
+
         
         <div class="hexo-douban-pagination">
     <a class="hexo-douban-button hexo-douban-firstpage" href="javascript:;"> 首页</a>
@@ -548,7 +740,7 @@ for (var i = 0; i < firstpages.length; i++) {
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://hexo.dulada.com/movies/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/movies/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -574,6 +766,19 @@ for (var i = 0; i < firstpages.length; i++) {
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -582,31 +787,6 @@ for (var i = 0; i < firstpages.length; i++) {
 
 
 
-  <section id="comments" class="comments">
-    <style>
-      .comments{margin:30px;padding:10px;background:#fff}
-      @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
-    </style>
-    <div id="vcomment" class="comment"></div> 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-   var notify = 'false' == true ? true : false;
-   var verify = 'false' == true ? true : false;
-    window.onload = function() {
-        new Valine({
-            el: '.comment',
-            notify: notify,
-            verify: verify,
-            app_id: "bOJwV7Fp9sTeU13FHU8Hn3JA-gzGzoHsz",
-            app_key: "TReyM4HINmTQqhqgFzMax2Ix",
-            placeholder: "Just go go",
-            avatar:"mm"
-        });
-    }
-</script>
-    </section>
-  
 
           </div>
         </div>
@@ -665,6 +845,7 @@ setInterval("createtime()",250);
 
 
     </div>
+    
     <script>
 	var yiliaConfig = {
 		mathjax: false,
@@ -677,7 +858,7 @@ setInterval("createtime()",250);
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -753,7 +934,7 @@ mathjax: true
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">octopress</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
             
             <div class="clearfix"></div>
@@ -805,7 +986,15 @@ mathjax: true
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://github.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>最大聚集地</a>
+              <a href="https://github.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>全球最大的同性恋聚集地</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://gitee.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>国内不错的同性恋聚集地</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://gitee.com/mingleilee" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>假 装 有 友 联</a>
             </li>
           
         </ul>
@@ -890,5 +1079,153 @@ mathjax: true
 
 </div>
   </div>
+  
 </body>
+<!-- <style>
+    .music-btn {
+        width: 48px;
+        height: auto;
+        overflow: hidden;
+        position: fixed;
+        left: 5%;
+        bottom: 7%;
+        z-index: 99999;
+    }
+
+    .music-btn>span {
+        font-size: 14px;
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        width: 48px;
+        height: auto;
+        text-align: center;
+        margin-bottom: 10px;
+        background-color: #0090dd;
+        background-size: 70% 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 10px;
+    }
+#bgm {
+        display: none
+    }
+    /* .music-btn>span:nth-child(1) {
+        background-image: url(http://res.dulada.com/hexo/play.png)
+    }
+    
+    .music-btn>span:nth-child(2) {
+        background-image: url(http://res.dulada.com/hexo/pause.png)
+    }
+    
+    .music-btn>span:nth-child(3) {
+        background-image: url(http://res.dulada.com/hexo/next.png)
+    }
+    
+    .music-btn>span:nth-child(4) {
+        background-image: url(http://res.dulada.com/hexo/rest.png)
+    } */
+
+    
+</style>
+<div class="music-btn">
+    <span class="bgm_btn_play">播放</span>
+    <span class="bgm_btn_stop">暂停</span>
+    <span class="bgm_btn_next">下一首</span>
+    <span class="bgm_btn_rest">停止</span>
+</div>
+<audio value="4" id="bgm" controls>
+</audio>
+<script>
+    window.onload = function () {
+        //多首歌曲播放效果以及基本的按钮定义
+        var bgm_echo = document.querySelector('.bgm_echo');
+        var bgm_btn_play = document.querySelector('.bgm_btn_play');
+        var bgm_btn_stop = document.querySelector('.bgm_btn_stop');
+        var bgm_btn_next = document.querySelector('.bgm_btn_next');
+        var bgm = document.getElementById('bgm');
+        //播放开始
+        bgm_btn_play.onclick = function () {
+            bgm.play();
+        }
+        //播放暂停
+        bgm_btn_stop.onclick = function () {
+            bgm.pause();
+        }
+        //初始化播放列表【如果有播放记录，则调用】
+        if (localStorage.getItem('bgm_gds') != null) {
+            bgm.setAttribute('value', localStorage.getItem('bgm_gds'));
+            bgm.innerHTML = '<source src="http://res.dulada.com/hexo/' + localStorage.getItem('bgm_gds') + '.mp3" type="audio/mpeg">';
+            //					bgm_echo.innerHTML = '当前播放第' + localStorage.getItem('bgm_gds') + '首歌曲';
+        } else {
+            bgm.setAttribute('value', 1);
+            bgm.innerHTML = '<source src="http://res.dulada.com/hexo/1.mp3" type="audio/mpeg">';
+            //					bgm_echo.innerHTML = '当前播放第1首歌曲';
+        }
+        //下一首歌曲切换
+        bgm_btn_next.onclick = function () {
+            var bgm_gds = bgm.getAttribute('value');
+            if (bgm_gds < 4) {
+                bgm_gds++;
+            } else {
+                bgm_gds = 1;
+            }
+            bgm.innerHTML = '<source src="http://res.dulada.com/hexo/' + bgm_gds + '.mp3" type="audio/mpeg">';
+            //					bgm_echo.innerHTML = '当前播放第' + bgm_gds + '首歌曲';
+            bgm.load();
+            bgm.play();
+            //切换歌曲后，写入代码
+            bgm.setAttribute('value', bgm_gds);
+            localStorage.setItem('bgm_gds', bgm_gds);
+        }
+        //音乐播放完成操作
+        bgm.onended = function () {
+            bgm_btn_next.click();
+        };
+        //重置所有音频记忆
+        var bgm_btn_rest = document.querySelector('.bgm_btn_rest');
+        bgm_btn_rest.onclick = function () {
+            //停止音乐
+            bgm.pause();
+            setTimeout(function () {
+                //删除记录
+                localStorage.removeItem('bgm_gds');
+                localStorage.removeItem('bgm_time');
+                //重新启动
+                bgm.setAttribute('value', 1);
+                bgm.innerHTML = '<source src="http://res.dulada.com/hexo/1.mp3" type="audio/mpeg">';
+                //						bgm_echo.innerHTML = '当前播放第1首歌曲';
+                //重新播放
+                bgm.load();
+                bgm.play();
+            }, 200);
+        }
+
+        //音轨补偿代码
+        setTimeout(function () {
+            //获取DOM
+            var bgm = document.getElementById('bgm');
+            //如果发现有本地存储，则进行音轨补偿
+            if (localStorage.getItem('bgm_time') != null) {
+                bgm.currentTime = localStorage.getItem('bgm_time');
+                //启动播放音乐
+                bgm.play();
+            }
+            //不断循环记录播放进度
+            window.setInterval(function () {
+                //检测是否支持本地存储
+                if (typeof (Storage) !== 'undefined') {
+                    //写入BGM播放进度
+                    localStorage.setItem('bgm_time', bgm.currentTime);
+                } else {
+                    //提示浏览器不支持
+                    var doc_body = document.querySelector('body');
+                    doc_body.innerHTML = '<h1>抱歉！您的浏览器过旧，请更换新的浏览器再试</h1>';
+                }
+            }, 100);
+            //初始化启动BGM
+            bgm.play();
+        }, 800);
+    }
+</script> -->
 </html>

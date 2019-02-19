@@ -5,7 +5,7 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="//hexo.dulada.com">
+  <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Archives | Arley的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
@@ -29,7 +29,7 @@
 <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Arley的博客">
-<meta property="og:url" content="//hexo.dulada.com/archives/index.html">
+<meta property="og:url" content="http://yoursite.com/archives/index.html">
 <meta property="og:site_name" content="Arley的博客">
 <meta property="og:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
 <meta property="og:locale" content="default">
@@ -62,6 +62,155 @@ var _hmt = _hmt || [];
 
 
 </head>
+<style>
+  .music-btn {
+    width: 48px;
+    height: auto;
+    overflow: hidden;
+    position: fixed;
+    left: 3%;
+    bottom: 7%;
+    z-index: 99999;
+    opacity: 0.5;
+  }
+
+  .music-btn>span {
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    width: 48px;
+    height: auto;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #0090dd;
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+  }
+
+  #bgm {
+    display: none
+  }
+
+  /* .music-btn>span:nth-child(1) {
+        background-image: url(http://res.dulada.com/hexo/play.png)
+    }
+    
+    .music-btn>span:nth-child(2) {
+        background-image: url(http://res.dulada.com/hexo/pause.png)
+    }
+    
+    .music-btn>span:nth-child(3) {
+        background-image: url(http://res.dulada.com/hexo/next.png)
+    }
+    
+    .music-btn>span:nth-child(4) {
+        background-image: url(http://res.dulada.com/hexo/rest.png)
+    } */
+</style>
+<div class="music-btn">
+  <span class="bgm_btn_play">播放</span>
+  <span class="bgm_btn_stop">暂停</span>
+  <span class="bgm_btn_next">下一首</span>
+  <span class="bgm_btn_rest">停止</span>
+</div>
+<audio value="4" id="bgm" controls>
+</audio>
+<script>
+  window.onload = function () {
+    //多首歌曲播放效果以及基本的按钮定义
+    var bgm_echo = document.querySelector('.bgm_echo');
+    var bgm_btn_play = document.querySelector('.bgm_btn_play');
+    var bgm_btn_stop = document.querySelector('.bgm_btn_stop');
+    var bgm_btn_next = document.querySelector('.bgm_btn_next');
+    var bgm = document.getElementById('bgm');
+    //播放开始
+    bgm_btn_play.onclick = function () {
+      bgm.play();
+    }
+    //播放暂停
+    bgm_btn_stop.onclick = function () {
+      bgm.pause();
+    }
+    //初始化播放列表【如果有播放记录，则调用】
+    if (localStorage.getItem('bgm_gds') != null) {
+      bgm.setAttribute('value', localStorage.getItem('bgm_gds'));
+      bgm.innerHTML = '<source src="http://res.dulada.com/hexo/' + localStorage.getItem('bgm_gds') + '.mp3" type="audio/mpeg">';
+      //					bgm_echo.innerHTML = '当前播放第' + localStorage.getItem('bgm_gds') + '首歌曲';
+    } else {
+      bgm.setAttribute('value', 1);
+      bgm.innerHTML = '<source src="http://res.dulada.com/hexo/1.mp3" type="audio/mpeg">';
+      //					bgm_echo.innerHTML = '当前播放第1首歌曲';
+    }
+    //下一首歌曲切换
+    bgm_btn_next.onclick = function () {
+      var bgm_gds = bgm.getAttribute('value');
+      if (bgm_gds < 4) {
+        bgm_gds++;
+      } else {
+        bgm_gds = 1;
+      }
+      bgm.innerHTML = '<source src="http://res.dulada.com/hexo/' + bgm_gds + '.mp3" type="audio/mpeg">';
+      //					bgm_echo.innerHTML = '当前播放第' + bgm_gds + '首歌曲';
+      bgm.load();
+      bgm.play();
+      //切换歌曲后，写入代码
+      bgm.setAttribute('value', bgm_gds);
+      localStorage.setItem('bgm_gds', bgm_gds);
+    }
+    //音乐播放完成操作
+    bgm.onended = function () {
+      bgm_btn_next.click();
+    };
+    //重置所有音频记忆
+    var bgm_btn_rest = document.querySelector('.bgm_btn_rest');
+    bgm_btn_rest.onclick = function () {
+      //停止音乐
+      bgm.pause();
+      setTimeout(function () {
+        //删除记录
+        localStorage.removeItem('bgm_gds');
+        localStorage.removeItem('bgm_time');
+        //重新启动
+        bgm.setAttribute('value', 1);
+        bgm.innerHTML = '<source src="http://res.dulada.com/hexo/1.mp3" type="audio/mpeg">';
+        //						bgm_echo.innerHTML = '当前播放第1首歌曲';
+        //重新播放
+        bgm.load();
+        bgm.play();
+      }, 200);
+    }
+
+    //音轨补偿代码
+    setTimeout(function () {
+      //获取DOM
+      var bgm = document.getElementById('bgm');
+      //如果发现有本地存储，则进行音轨补偿
+      if (localStorage.getItem('bgm_time') != null) {
+        bgm.currentTime = localStorage.getItem('bgm_time');
+        //启动播放音乐
+        bgm.play();
+      }
+      //不断循环记录播放进度
+      window.setInterval(function () {
+        //检测是否支持本地存储
+        if (typeof (Storage) !== 'undefined') {
+          //写入BGM播放进度
+          localStorage.setItem('bgm_time', bgm.currentTime);
+        } else {
+          //提示浏览器不支持
+          var doc_body = document.querySelector('body');
+          doc_body.innerHTML = '<h1>抱歉！您的浏览器过旧，请更换新的浏览器再试</h1>';
+        }
+      }, 100);
+      //初始化启动BGM
+      bgm.play();
+    }, 800);
+  }
+</script>
+
 </html>
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -231,9 +380,101 @@ var _hmt = _hmt || [];
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
         		</li>
-      		 
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+      
+        </div></section>
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/01/11/php-Advanced-combat-1/" class="archive-article-date">
+  	<time datetime="2018-01-11T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-11</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/01/11/php-Advanced-combat-1/">1.验证码实例化</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">octopress</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+      
+        </div></section>
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/11/php-high-level-syntax-6/" class="archive-article-date">
+  	<time datetime="2017-12-11T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-11</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/11/php-high-level-syntax-6/">6.trait与命名空间</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
         		</li>
       		
 		</ul>
@@ -253,19 +494,258 @@ var _hmt = _hmt || [];
   <div class="archive-article-inner">
     <header class="archive-article-header">
       	<div class="article-meta">
-	      	<a href="/2019/02/12/hello-world/" class="archive-article-date">
-  	<time datetime="2019-02-12T01:23:04.699Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-12</time>
+	      	<a href="/2017/12/10/php-high-level-syntax-5/" class="archive-article-date">
+  	<time datetime="2017-12-10T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-10</time>
 </a>
         </div>
     	 
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/02/12/hello-world/">Hello World</a>
+      <a class="archive-article-title" href="/2017/12/10/php-high-level-syntax-5/">5.抽象类与接口</a>
     </h1>
   
 
         <div class="article-info info-on-right">
           
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/09/php-high-level-syntax-4/" class="archive-article-date">
+  	<time datetime="2017-12-09T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/09/php-high-level-syntax-4/">4.常量、静态属性、静态方法</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/08/php-high-level-syntax-3/" class="archive-article-date">
+  	<time datetime="2017-12-08T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/08/php-high-level-syntax-3/">3.魔术方法</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/07/php-high-level-syntax-2/" class="archive-article-date">
+  	<time datetime="2017-12-07T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-07</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/07/php-high-level-syntax-2/">2.继承</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/12/06/php-high-level-syntax-1/" class="archive-article-date">
+  	<time datetime="2017-12-06T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/12/06/php-high-level-syntax-1/">1.类和对象的概念</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/11/26/php-basics-13/" class="archive-article-date">
+  	<time datetime="2017-11-26T01:18:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-26</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/11/26/php-basics-13/">13.正则</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/11/26/php-basics-12/" class="archive-article-date">
+  	<time datetime="2017-11-26T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-26</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/11/26/php-basics-12/">12.文件上传</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
           
 
         </div>
@@ -279,6 +759,10 @@ var _hmt = _hmt || [];
   
 
     
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
+    </nav>
+  
 
 
           </div>
@@ -338,6 +822,7 @@ setInterval("createtime()",250);
 
 
     </div>
+    
     <script>
 	var yiliaConfig = {
 		mathjax: false,
@@ -350,7 +835,7 @@ setInterval("createtime()",250);
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -426,7 +911,7 @@ mathjax: true
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">octopress</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
             
             <div class="clearfix"></div>
@@ -478,7 +963,15 @@ mathjax: true
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://github.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>最大聚集地</a>
+              <a href="https://github.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>全球最大的同性恋聚集地</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://gitee.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>国内不错的同性恋聚集地</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://gitee.com/mingleilee" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>假 装 有 友 联</a>
             </li>
           
         </ul>
@@ -563,5 +1056,153 @@ mathjax: true
 
 </div>
   </div>
+  
 </body>
+<!-- <style>
+    .music-btn {
+        width: 48px;
+        height: auto;
+        overflow: hidden;
+        position: fixed;
+        left: 5%;
+        bottom: 7%;
+        z-index: 99999;
+    }
+
+    .music-btn>span {
+        font-size: 14px;
+        color: #fff;
+        cursor: pointer;
+        display: block;
+        width: 48px;
+        height: auto;
+        text-align: center;
+        margin-bottom: 10px;
+        background-color: #0090dd;
+        background-size: 70% 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 10px;
+    }
+#bgm {
+        display: none
+    }
+    /* .music-btn>span:nth-child(1) {
+        background-image: url(http://res.dulada.com/hexo/play.png)
+    }
+    
+    .music-btn>span:nth-child(2) {
+        background-image: url(http://res.dulada.com/hexo/pause.png)
+    }
+    
+    .music-btn>span:nth-child(3) {
+        background-image: url(http://res.dulada.com/hexo/next.png)
+    }
+    
+    .music-btn>span:nth-child(4) {
+        background-image: url(http://res.dulada.com/hexo/rest.png)
+    } */
+
+    
+</style>
+<div class="music-btn">
+    <span class="bgm_btn_play">播放</span>
+    <span class="bgm_btn_stop">暂停</span>
+    <span class="bgm_btn_next">下一首</span>
+    <span class="bgm_btn_rest">停止</span>
+</div>
+<audio value="4" id="bgm" controls>
+</audio>
+<script>
+    window.onload = function () {
+        //多首歌曲播放效果以及基本的按钮定义
+        var bgm_echo = document.querySelector('.bgm_echo');
+        var bgm_btn_play = document.querySelector('.bgm_btn_play');
+        var bgm_btn_stop = document.querySelector('.bgm_btn_stop');
+        var bgm_btn_next = document.querySelector('.bgm_btn_next');
+        var bgm = document.getElementById('bgm');
+        //播放开始
+        bgm_btn_play.onclick = function () {
+            bgm.play();
+        }
+        //播放暂停
+        bgm_btn_stop.onclick = function () {
+            bgm.pause();
+        }
+        //初始化播放列表【如果有播放记录，则调用】
+        if (localStorage.getItem('bgm_gds') != null) {
+            bgm.setAttribute('value', localStorage.getItem('bgm_gds'));
+            bgm.innerHTML = '<source src="http://res.dulada.com/hexo/' + localStorage.getItem('bgm_gds') + '.mp3" type="audio/mpeg">';
+            //					bgm_echo.innerHTML = '当前播放第' + localStorage.getItem('bgm_gds') + '首歌曲';
+        } else {
+            bgm.setAttribute('value', 1);
+            bgm.innerHTML = '<source src="http://res.dulada.com/hexo/1.mp3" type="audio/mpeg">';
+            //					bgm_echo.innerHTML = '当前播放第1首歌曲';
+        }
+        //下一首歌曲切换
+        bgm_btn_next.onclick = function () {
+            var bgm_gds = bgm.getAttribute('value');
+            if (bgm_gds < 4) {
+                bgm_gds++;
+            } else {
+                bgm_gds = 1;
+            }
+            bgm.innerHTML = '<source src="http://res.dulada.com/hexo/' + bgm_gds + '.mp3" type="audio/mpeg">';
+            //					bgm_echo.innerHTML = '当前播放第' + bgm_gds + '首歌曲';
+            bgm.load();
+            bgm.play();
+            //切换歌曲后，写入代码
+            bgm.setAttribute('value', bgm_gds);
+            localStorage.setItem('bgm_gds', bgm_gds);
+        }
+        //音乐播放完成操作
+        bgm.onended = function () {
+            bgm_btn_next.click();
+        };
+        //重置所有音频记忆
+        var bgm_btn_rest = document.querySelector('.bgm_btn_rest');
+        bgm_btn_rest.onclick = function () {
+            //停止音乐
+            bgm.pause();
+            setTimeout(function () {
+                //删除记录
+                localStorage.removeItem('bgm_gds');
+                localStorage.removeItem('bgm_time');
+                //重新启动
+                bgm.setAttribute('value', 1);
+                bgm.innerHTML = '<source src="http://res.dulada.com/hexo/1.mp3" type="audio/mpeg">';
+                //						bgm_echo.innerHTML = '当前播放第1首歌曲';
+                //重新播放
+                bgm.load();
+                bgm.play();
+            }, 200);
+        }
+
+        //音轨补偿代码
+        setTimeout(function () {
+            //获取DOM
+            var bgm = document.getElementById('bgm');
+            //如果发现有本地存储，则进行音轨补偿
+            if (localStorage.getItem('bgm_time') != null) {
+                bgm.currentTime = localStorage.getItem('bgm_time');
+                //启动播放音乐
+                bgm.play();
+            }
+            //不断循环记录播放进度
+            window.setInterval(function () {
+                //检测是否支持本地存储
+                if (typeof (Storage) !== 'undefined') {
+                    //写入BGM播放进度
+                    localStorage.setItem('bgm_time', bgm.currentTime);
+                } else {
+                    //提示浏览器不支持
+                    var doc_body = document.querySelector('body');
+                    doc_body.innerHTML = '<h1>抱歉！您的浏览器过旧，请更换新的浏览器再试</h1>';
+                }
+            }, 100);
+            //初始化启动BGM
+            bgm.play();
+        }, 800);
+    }
+</script> -->
 </html>
