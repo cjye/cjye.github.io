@@ -5,9 +5,9 @@
   <subtitle>道可道，非常道，名可名，非常名</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2019-02-18T14:07:38.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="https://hexo.dulada.com/"/>
+  <updated>2019-02-19T02:07:54.000Z</updated>
+  <id>https://hexo.dulada.com/</id>
   
   <author>
     <name>Arley</name>
@@ -17,9 +17,31 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>yilia主题的hexo博客添加留言评论系统valine</title>
+    <link href="https://hexo.dulada.com/2019/02/19/hexo-comment-system/"/>
+    <id>https://hexo.dulada.com/2019/02/19/hexo-comment-system/</id>
+    <published>2019-02-19T01:18:53.000Z</published>
+    <updated>2019-02-19T02:07:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>yilia 主题的hexo博客 安装留言评论系统之valine</p><p>安装完yilia主题的hexo博客,自带的留言评论系统貌似都不能用，然后找到了<a href="https://valine.js.org/index.html" target="_blank" rel="noopener">valine</a>和<a href="http://www.disqus.com/" target="_blank" rel="noopener">disqus</a>（需要翻墙）</p><h5 id="首先打开valine-官网：https-valine-js-org"><a href="#首先打开valine-官网：https-valine-js-org" class="headerlink" title="首先打开valine 官网：https://valine.js.org/"></a>首先打开valine 官网：<a href="https://valine.js.org/" target="_blank" rel="noopener">https://valine.js.org/</a></h5><p>valine的介绍是：【是一款基于Leancloud的快速、简洁且高效的无后端评论系统。】</p><a id="more"></a><h5 id="按照官网的快速上手"><a href="#按照官网的快速上手" class="headerlink" title="按照官网的快速上手"></a>按照官网的<a href="https://valine.js.org/quickstart.html" target="_blank" rel="noopener">快速上手</a></h5><h4 id="前期准备操作"><a href="#前期准备操作" class="headerlink" title="前期准备操作"></a>前期准备操作</h4><h6 id="1-获取APP-ID-和-APP-Key"><a href="#1-获取APP-ID-和-APP-Key" class="headerlink" title="1.获取APP ID 和 APP Key"></a>1.获取APP ID 和 APP Key</h6><p>请先登录或注册 LeanCloud, 进入控制台后点击左下角创建应用：</p><p><img src="https://ws1.sinaimg.cn/large/006qRazegy1fkwo2fpoetj30h40coaak.jpg" alt="image"></p><p>应用创建好以后，进入刚刚创建的应用，选择左下角的设置&gt;应用Key，然后就能看到你的APP ID和APP Key了：<br><img src="https://ws1.sinaimg.cn/large/006qRazegy1fkwo6w2b6uj30xe0etjt4.jpg" alt="image"></p><h4 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h4><ol><li>首先在blog根目录下的_config.yml（==不是主题文件下的==）添加如下</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#Valine https://valine.js.org</span><br><span class="line">valine: </span><br><span class="line"> appid:  #Leancloud应用的appId</span><br><span class="line"> appkey:  #Leancloud应用的appKey</span><br><span class="line"> verify: false #验证码</span><br><span class="line"> notify: false #评论回复提醒</span><br><span class="line"> avatar: mm #评论列表头像样式：&apos;&apos;/mm/identicon/monsterid/wavatar/retro/hide</span><br><span class="line"> placeholder: Just go go #评论框占位符</span><br></pre></td></tr></table></figure><ol start="2"><li>++themes++下++yilia++下layout/_partial/article.ejs文件</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;</span><br><span class="line">    &lt;section id=&quot;comments&quot; class=&quot;comments&quot;&gt;</span><br><span class="line">      &lt;style&gt;</span><br><span class="line">        .comments&#123;margin:30px;padding:10px;background:#fff&#125;</span><br><span class="line">        @media screen and (max-width:800px)&#123;.comments&#123;margin:auto;padding:10px;background:#fff&#125;&#125;</span><br><span class="line">      &lt;/style&gt;</span><br><span class="line">      &lt;%- partial(&apos;post/valine&apos;, &#123;</span><br><span class="line">        key: post.slug,</span><br><span class="line">        title: post.title,</span><br><span class="line">        url: config.url+url_for(post.path)</span><br><span class="line">        &#125;) %&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure><ol start="3"><li>++themes++下++yilia++下的layout/_partial/post/valine.ejs文件</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vcomment&quot; class=&quot;comment&quot;&gt;&lt;/div&gt; </span><br><span class="line">&lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;//unpkg.com/valine/dist/Valine.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   var notify = &apos;&lt;%= theme.valine.notify %&gt;&apos; == true ? true : false;</span><br><span class="line">   var verify = &apos;&lt;%= theme.valine.verify %&gt;&apos; == true ? true : false;</span><br><span class="line">    window.onload = function() &#123;</span><br><span class="line">        new Valine(&#123;</span><br><span class="line">            el: &apos;.comment&apos;,</span><br><span class="line">            notify: notify,</span><br><span class="line">            verify: verify,</span><br><span class="line">            app_id: &quot;&lt;%= theme.valine.appid %&gt;&quot;,</span><br><span class="line">            app_key: &quot;&lt;%= theme.valine.appkey %&gt;&quot;,</span><br><span class="line">            placeholder: &quot;&lt;%= theme.valine.placeholder %&gt;&quot;,</span><br><span class="line">            avatar:&quot;&lt;%= theme.valine.avatar %&gt;&quot;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure><ol start="4"><li>容易出现的问题及解决办法</li></ol><ul><li>你好，我在博客中开启了valine，但是有一篇文章下评论块出现在了文章中间使我不得不关闭了评论块，对此毫无办法…<br><br>可以尝试性的将<code>layout/_partial/post/valine.ejs</code>文件中的</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new Valine(&#123;</span><br><span class="line">    el: &apos;.comment&apos;,</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>修改成：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new Valine(&#123;</span><br><span class="line">    el: &apos;#vcomment&apos;,</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><ul><li>不过我还有一个问题，为什么我在本地hexo server的页面上加载评论就很快，而在域名上评论块就加载的很慢甚至经常加载不出来…<br><br>可以尝试性的将<code>layout/_partial/post/valine.ejs</code>中的</li></ul><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Valine(&#123;</span><br><span class="line">        el: <span class="string">'#vcomment'</span>,</span><br><span class="line">        notify: notify,</span><br><span class="line">        verify: verify,</span><br><span class="line">        app_id: <span class="string">"&lt;%= theme.valine.appid %&gt;"</span>,</span><br><span class="line">        app_key: <span class="string">"&lt;%= theme.valine.appkey %&gt;"</span>,</span><br><span class="line">        placeholder: <span class="string">"&lt;%= theme.valine.placeholder %&gt;"</span>,</span><br><span class="line">        avatar:<span class="string">"&lt;%= theme.valine.avatar %&gt;"</span></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>改成</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Valine(&#123;</span><br><span class="line">    el: <span class="string">'#vcomment'</span>,</span><br><span class="line">    notify: notify,</span><br><span class="line">    verify: verify,</span><br><span class="line">    app_id: <span class="string">"&lt;%= theme.valine.appid %&gt;"</span>,</span><br><span class="line">    app_key: <span class="string">"&lt;%= theme.valine.appkey %&gt;"</span>,</span><br><span class="line">    placeholder: <span class="string">"&lt;%= theme.valine.placeholder %&gt;"</span>,</span><br><span class="line">    avatar:<span class="string">"&lt;%= theme.valine.avatar %&gt;"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><ul><li>请问各位，我的评论系统也在主页出现了，确定代码位置什么的都没放错，实在不知道问题出在哪里<br></li></ul><p>把article.ejs里的Valine评论系统代码往上移动一些，<br><br>移到&lt;% if (!index &amp;&amp; post.comments){ %&gt;下面试试</p><p><img src="/assets/blogImg/hexo-comment-system-1.png" alt="Picture by Matt Carlson"></p><h2 id="如果你实在不会-我帮你啊"><a href="#如果你实在不会-我帮你啊" class="headerlink" title="- 如果你实在不会  我帮你啊 ~~~"></a>- 如果你实在不会  我帮你啊 ~~~</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;yilia 主题的hexo博客 安装留言评论系统之valine&lt;/p&gt;
+&lt;p&gt;安装完yilia主题的hexo博客,自带的留言评论系统貌似都不能用，然后找到了&lt;a href=&quot;https://valine.js.org/index.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;valine&lt;/a&gt;和&lt;a href=&quot;http://www.disqus.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;disqus&lt;/a&gt;（需要翻墙）&lt;/p&gt;
+&lt;h5 id=&quot;首先打开valine-官网：https-valine-js-org&quot;&gt;&lt;a href=&quot;#首先打开valine-官网：https-valine-js-org&quot; class=&quot;headerlink&quot; title=&quot;首先打开valine 官网：https://valine.js.org/&quot;&gt;&lt;/a&gt;首先打开valine 官网：&lt;a href=&quot;https://valine.js.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://valine.js.org/&lt;/a&gt;&lt;/h5&gt;&lt;p&gt;valine的介绍是：【是一款基于Leancloud的快速、简洁且高效的无后端评论系统。】&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://hexo.dulada.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/02/16/20190216/"/>
-    <id>http://yoursite.com/2019/02/16/20190216/</id>
+    <link href="https://hexo.dulada.com/2019/02/16/20190216/"/>
+    <id>https://hexo.dulada.com/2019/02/16/20190216/</id>
     <published>2019-02-16T12:00:00.000Z</published>
     <updated>2019-02-18T14:07:38.000Z</updated>
     
@@ -38,14 +60,14 @@
     </summary>
     
     
-      <category term="杂谈" scheme="http://yoursite.com/tags/%E6%9D%82%E8%B0%88/"/>
+      <category term="杂谈" scheme="https://hexo.dulada.com/tags/%E6%9D%82%E8%B0%88/"/>
     
   </entry>
   
   <entry>
     <title>1.验证码实例化</title>
-    <link href="http://yoursite.com/2018/01/11/php-Advanced-combat-1/"/>
-    <id>http://yoursite.com/2018/01/11/php-Advanced-combat-1/</id>
+    <link href="https://hexo.dulada.com/2018/01/11/php-Advanced-combat-1/"/>
+    <id>https://hexo.dulada.com/2018/01/11/php-Advanced-combat-1/</id>
     <published>2018-01-11T01:10:10.000Z</published>
     <updated>2019-02-18T09:57:54.000Z</updated>
     
@@ -62,14 +84,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>6.trait与命名空间</title>
-    <link href="http://yoursite.com/2017/12/11/php-high-level-syntax-6/"/>
-    <id>http://yoursite.com/2017/12/11/php-high-level-syntax-6/</id>
+    <link href="https://hexo.dulada.com/2017/12/11/php-high-level-syntax-6/"/>
+    <id>https://hexo.dulada.com/2017/12/11/php-high-level-syntax-6/</id>
     <published>2017-12-11T01:10:10.000Z</published>
     <updated>2019-02-18T09:56:18.000Z</updated>
     
@@ -82,14 +104,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>5.抽象类与接口</title>
-    <link href="http://yoursite.com/2017/12/10/php-high-level-syntax-5/"/>
-    <id>http://yoursite.com/2017/12/10/php-high-level-syntax-5/</id>
+    <link href="https://hexo.dulada.com/2017/12/10/php-high-level-syntax-5/"/>
+    <id>https://hexo.dulada.com/2017/12/10/php-high-level-syntax-5/</id>
     <published>2017-12-10T01:10:10.000Z</published>
     <updated>2019-02-18T09:55:40.000Z</updated>
     
@@ -102,14 +124,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>4.常量、静态属性、静态方法</title>
-    <link href="http://yoursite.com/2017/12/09/php-high-level-syntax-4/"/>
-    <id>http://yoursite.com/2017/12/09/php-high-level-syntax-4/</id>
+    <link href="https://hexo.dulada.com/2017/12/09/php-high-level-syntax-4/"/>
+    <id>https://hexo.dulada.com/2017/12/09/php-high-level-syntax-4/</id>
     <published>2017-12-09T01:10:10.000Z</published>
     <updated>2019-02-18T09:55:08.000Z</updated>
     
@@ -125,14 +147,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>3.魔术方法</title>
-    <link href="http://yoursite.com/2017/12/08/php-high-level-syntax-3/"/>
-    <id>http://yoursite.com/2017/12/08/php-high-level-syntax-3/</id>
+    <link href="https://hexo.dulada.com/2017/12/08/php-high-level-syntax-3/"/>
+    <id>https://hexo.dulada.com/2017/12/08/php-high-level-syntax-3/</id>
     <published>2017-12-08T01:10:10.000Z</published>
     <updated>2019-02-18T09:54:32.000Z</updated>
     
@@ -151,14 +173,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>2.继承</title>
-    <link href="http://yoursite.com/2017/12/07/php-high-level-syntax-2/"/>
-    <id>http://yoursite.com/2017/12/07/php-high-level-syntax-2/</id>
+    <link href="https://hexo.dulada.com/2017/12/07/php-high-level-syntax-2/"/>
+    <id>https://hexo.dulada.com/2017/12/07/php-high-level-syntax-2/</id>
     <published>2017-12-07T01:10:10.000Z</published>
     <updated>2019-02-19T00:37:48.000Z</updated>
     
@@ -174,14 +196,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>1.类和对象的概念</title>
-    <link href="http://yoursite.com/2017/12/06/php-high-level-syntax-1/"/>
-    <id>http://yoursite.com/2017/12/06/php-high-level-syntax-1/</id>
+    <link href="https://hexo.dulada.com/2017/12/06/php-high-level-syntax-1/"/>
+    <id>https://hexo.dulada.com/2017/12/06/php-high-level-syntax-1/</id>
     <published>2017-12-06T01:10:10.000Z</published>
     <updated>2019-02-18T09:52:30.000Z</updated>
     
@@ -194,14 +216,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>13.正则</title>
-    <link href="http://yoursite.com/2017/11/26/php-basics-13/"/>
-    <id>http://yoursite.com/2017/11/26/php-basics-13/</id>
+    <link href="https://hexo.dulada.com/2017/11/26/php-basics-13/"/>
+    <id>https://hexo.dulada.com/2017/11/26/php-basics-13/</id>
     <published>2017-11-26T01:18:10.000Z</published>
     <updated>2019-02-18T01:19:14.000Z</updated>
     
@@ -217,14 +239,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>12.文件上传</title>
-    <link href="http://yoursite.com/2017/11/26/php-basics-12/"/>
-    <id>http://yoursite.com/2017/11/26/php-basics-12/</id>
+    <link href="https://hexo.dulada.com/2017/11/26/php-basics-12/"/>
+    <id>https://hexo.dulada.com/2017/11/26/php-basics-12/</id>
     <published>2017-11-26T01:10:10.000Z</published>
     <updated>2019-02-18T01:17:58.000Z</updated>
     
@@ -237,14 +259,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>11.文件操作</title>
-    <link href="http://yoursite.com/2017/11/25/php-basics-11/"/>
-    <id>http://yoursite.com/2017/11/25/php-basics-11/</id>
+    <link href="https://hexo.dulada.com/2017/11/25/php-basics-11/"/>
+    <id>https://hexo.dulada.com/2017/11/25/php-basics-11/</id>
     <published>2017-11-25T01:10:10.000Z</published>
     <updated>2019-02-18T01:17:08.000Z</updated>
     
@@ -257,14 +279,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>10.gd库</title>
-    <link href="http://yoursite.com/2017/11/24/php-basics-10/"/>
-    <id>http://yoursite.com/2017/11/24/php-basics-10/</id>
+    <link href="https://hexo.dulada.com/2017/11/24/php-basics-10/"/>
+    <id>https://hexo.dulada.com/2017/11/24/php-basics-10/</id>
     <published>2017-11-24T01:10:10.000Z</published>
     <updated>2019-02-18T01:11:56.000Z</updated>
     
@@ -281,14 +303,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>9.cookie 与  session</title>
-    <link href="http://yoursite.com/2017/11/24/php-basics-9/"/>
-    <id>http://yoursite.com/2017/11/24/php-basics-9/</id>
+    <link href="https://hexo.dulada.com/2017/11/24/php-basics-9/"/>
+    <id>https://hexo.dulada.com/2017/11/24/php-basics-9/</id>
     <published>2017-11-24T01:09:10.000Z</published>
     <updated>2019-02-18T01:09:54.000Z</updated>
     
@@ -301,14 +323,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>8.php操作mysql</title>
-    <link href="http://yoursite.com/2017/11/23/php-basics-8/"/>
-    <id>http://yoursite.com/2017/11/23/php-basics-8/</id>
+    <link href="https://hexo.dulada.com/2017/11/23/php-basics-8/"/>
+    <id>https://hexo.dulada.com/2017/11/23/php-basics-8/</id>
     <published>2017-11-23T01:05:10.000Z</published>
     <updated>2019-02-18T01:06:58.000Z</updated>
     
@@ -326,14 +348,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>7.MySQL</title>
-    <link href="http://yoursite.com/2017/11/22/php-basics-7/"/>
-    <id>http://yoursite.com/2017/11/22/php-basics-7/</id>
+    <link href="https://hexo.dulada.com/2017/11/22/php-basics-7/"/>
+    <id>https://hexo.dulada.com/2017/11/22/php-basics-7/</id>
     <published>2017-11-22T01:05:10.000Z</published>
     <updated>2019-02-18T01:09:10.000Z</updated>
     
@@ -346,14 +368,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>6.文件包含及数组</title>
-    <link href="http://yoursite.com/2017/11/22/php-basics-6/"/>
-    <id>http://yoursite.com/2017/11/22/php-basics-6/</id>
+    <link href="https://hexo.dulada.com/2017/11/22/php-basics-6/"/>
+    <id>https://hexo.dulada.com/2017/11/22/php-basics-6/</id>
     <published>2017-11-22T01:03:10.000Z</published>
     <updated>2019-02-18T01:09:04.000Z</updated>
     
@@ -367,14 +389,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>5.函数</title>
-    <link href="http://yoursite.com/2017/11/21/php-basics-5/"/>
-    <id>http://yoursite.com/2017/11/21/php-basics-5/</id>
+    <link href="https://hexo.dulada.com/2017/11/21/php-basics-5/"/>
+    <id>https://hexo.dulada.com/2017/11/21/php-basics-5/</id>
     <published>2017-11-21T00:59:10.000Z</published>
     <updated>2019-02-18T01:07:24.000Z</updated>
     
@@ -387,14 +409,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>4.流程控制---为false的几种情况</title>
-    <link href="http://yoursite.com/2017/11/21/php-basics-4/"/>
-    <id>http://yoursite.com/2017/11/21/php-basics-4/</id>
+    <link href="https://hexo.dulada.com/2017/11/21/php-basics-4/"/>
+    <id>https://hexo.dulada.com/2017/11/21/php-basics-4/</id>
     <published>2017-11-21T00:58:10.000Z</published>
     <updated>2019-02-18T01:01:08.000Z</updated>
     
@@ -407,14 +429,14 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>3.系统常量与运算符</title>
-    <link href="http://yoursite.com/2017/11/21/php-basics-3/"/>
-    <id>http://yoursite.com/2017/11/21/php-basics-3/</id>
+    <link href="https://hexo.dulada.com/2017/11/21/php-basics-3/"/>
+    <id>https://hexo.dulada.com/2017/11/21/php-basics-3/</id>
     <published>2017-11-21T00:56:10.000Z</published>
     <updated>2019-02-18T01:08:58.000Z</updated>
     
@@ -439,27 +461,7 @@
     </summary>
     
     
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2.数据类型及数据类型的转换 tip</title>
-    <link href="http://yoursite.com/2017/11/21/php-basics-2/"/>
-    <id>http://yoursite.com/2017/11/21/php-basics-2/</id>
-    <published>2017-11-21T00:54:10.000Z</published>
-    <updated>2019-02-18T01:01:20.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    //标量</span><br><span class="line">        整型 (int integer 整数)</span><br><span class="line">            1 2 3</span><br><span class="line">            </span><br><span class="line">        浮点型 (float)</span><br><span class="line">            1.2 3.1</span><br><span class="line">        布尔类型(bool boolean)</span><br><span class="line">            true false</span><br><span class="line">        字符串(string)</span><br><span class="line">            只要用引号引起来的</span><br><span class="line">    //混合类型</span><br><span class="line">        数组</span><br><span class="line">            array</span><br><span class="line">        对象</span><br><span class="line">            object</span><br><span class="line">    //特殊类型</span><br><span class="line">        空</span><br><span class="line">            null</span><br><span class="line">        资源</span><br><span class="line">            resource</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><a id="more"></a><ul><li>强制类型转换</li><li><ul><li>intval()</li></ul></li><li><ul><li>floatval()</li></ul></li><li><ul><li>strval()</li></ul></li><li><ul><li>boolval()<hr></li></ul></li><li><p>总结</p></li><li></li><li><ul><li>空转化为整型会是0</li></ul></li><li><ul><li>空转换为浮点型变成浮点型的0</li></ul></li><li><ul><li>空转化为字符串会变成空字符串’’ tip:中间不能有任何数字包括空格</li></ul></li><li><ul><li>整型后面如果有字符串，会把字符串干掉留着前面的数字<br>123.456.abc -&gt; 123</li></ul></li><li><ul><li>浮点型如果后面有字符串，会把字符串干掉留着前面的数字包括小数点以后的<br>123.456.abc -&gt; 123.456</li></ul></li></ul><hr><ul><li>判断数据类型常用的函数</li></ul><ol><li>is_array();</li><li><p>is_string();</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$str = &apos;abc&apos;;</span><br><span class="line">is_string($str);</span><br></pre></td></tr></table></figure></li><li><p>is_bool();</p></li><li>is_object();</li><li>is_int();</li><li>is_numeric();</li><li>is_resource();</li><li>is_null();</li><li>is_scalar(); //标量</li><li>gettype();//获取类型<br>var_dump();//输出值和类型</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //标量&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        整型 (int integer 整数)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            1 2 3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        浮点型 (float)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            1.2 3.1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        布尔类型(bool boolean)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            true false&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        字符串(string)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            只要用引号引起来的&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //混合类型&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        数组&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            array&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        对象&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            object&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    //特殊类型&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        空&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            null&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        资源&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            resource&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-    
-      <category term="php" scheme="http://yoursite.com/tags/php/"/>
+      <category term="php" scheme="https://hexo.dulada.com/tags/php/"/>
     
   </entry>
   
