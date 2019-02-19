@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006qRazegy1fkwo2fpoetj30h40coaak.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006qRazegy1fkwo6w2b6uj30xe0etjt4.jpg">
 <meta property="og:image" content="https://hexo.dulada.com/assets/blogImg/hexo-comment-system-1.png">
-<meta property="og:updated_time" content="2019-02-19T02:07:54.000Z">
+<meta property="og:updated_time" content="2019-02-19T04:00:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yilia主题的hexo博客添加留言评论系统valine">
 <meta name="twitter:description" content="yilia 主题的hexo博客 安装留言评论系统之valine 安装完yilia主题的hexo博客,自带的留言评论系统貌似都不能用，然后找到了valine和disqus（需要翻墙） 首先打开valine 官网：https://valine.js.org/valine的介绍是：【是一款基于Leancloud的快速、简洁且高效的无后端评论系统。】">
@@ -253,11 +253,11 @@ var _hmt = _hmt || [];
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#Valine https://valine.js.org</span><br><span class="line">valine: </span><br><span class="line"> appid:  #Leancloud应用的appId</span><br><span class="line"> appkey:  #Leancloud应用的appKey</span><br><span class="line"> verify: false #验证码</span><br><span class="line"> notify: false #评论回复提醒</span><br><span class="line"> avatar: mm #评论列表头像样式：&apos;&apos;/mm/identicon/monsterid/wavatar/retro/hide</span><br><span class="line"> placeholder: Just go go #评论框占位符</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>++themes++下++yilia++下layout/_partial/article.ejs文件</li>
+<li>themes下yilia下layout/_partial/article.ejs文件</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;</span><br><span class="line">    &lt;section id=&quot;comments&quot; class=&quot;comments&quot;&gt;</span><br><span class="line">      &lt;style&gt;</span><br><span class="line">        .comments&#123;margin:30px;padding:10px;background:#fff&#125;</span><br><span class="line">        @media screen and (max-width:800px)&#123;.comments&#123;margin:auto;padding:10px;background:#fff&#125;&#125;</span><br><span class="line">      &lt;/style&gt;</span><br><span class="line">      &lt;%- partial(&apos;post/valine&apos;, &#123;</span><br><span class="line">        key: post.slug,</span><br><span class="line">        title: post.title,</span><br><span class="line">        url: config.url+url_for(post.path)</span><br><span class="line">        &#125;) %&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
 <ol start="3">
-<li>++themes++下++yilia++下的layout/_partial/post/valine.ejs文件</li>
+<li>themes下yilia下的layout/_partial/post/valine.ejs文件</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vcomment&quot; class=&quot;comment&quot;&gt;&lt;/div&gt; </span><br><span class="line">&lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;//unpkg.com/valine/dist/Valine.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   var notify = &apos;&lt;%= theme.valine.notify %&gt;&apos; == true ? true : false;</span><br><span class="line">   var verify = &apos;&lt;%= theme.valine.verify %&gt;&apos; == true ? true : false;</span><br><span class="line">    window.onload = function() &#123;</span><br><span class="line">        new Valine(&#123;</span><br><span class="line">            el: &apos;.comment&apos;,</span><br><span class="line">            notify: notify,</span><br><span class="line">            verify: verify,</span><br><span class="line">            app_id: &quot;&lt;%= theme.valine.appid %&gt;&quot;,</span><br><span class="line">            app_key: &quot;&lt;%= theme.valine.appkey %&gt;&quot;,</span><br><span class="line">            placeholder: &quot;&lt;%= theme.valine.placeholder %&gt;&quot;,</span><br><span class="line">            avatar:&quot;&lt;%= theme.valine.avatar %&gt;&quot;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <ol start="4">
@@ -380,7 +380,8 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://hexo.dulada.com/2019/02/19/hexo-comment-system/" alt="微信分享二维码">
+      <!-- <img src="//pan.baidu.com/share/qrcode?url=https://hexo.dulada.com/2019/02/19/hexo-comment-system/" alt="微信分享二维码"> -->
+      <img src="http://bshare.optimix.asia/barCode?site=weixin&url=https://hexo.dulada.com/2019/02/19/hexo-comment-system/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -505,6 +506,7 @@ var _hmt = _hmt || [];
 
 <span id="busuanzi_container_site_pv">--- 本站总访问量 <span id="busuanzi_value_site_pv"></span> 次 ❤</span>
 <span id="busuanzi_container_site_uv"> 本站总访客 <span id="busuanzi_value_site_uv"></span> 人 ---</span>
+
 <br>
   <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 <script>
@@ -524,19 +526,37 @@ var _hmt = _hmt || [];
 setInterval("createtime()",250);
 </script>
 	
-
+  <br>
+  <a href="http://www.miitbeian.gov.cn/">鲁ICP备17049644号</a>
     </div> 
+
     <!-- <p>--- Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a> ---</p> -->
     
     <!-- <div class="count-span">
 	<span id="busuanzi_container_page_pv">本文总访问量 <span id="busuanzi_value_page_pv"></span> 次</span>
     </div>  -->
   </div>
+  
 </footer>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <!--页面点击小红心-->
 <script type="text/javascript" src="/love.js" rel="external nofollow"></script>
+<script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+  </script>
+  
 
 
 
@@ -630,11 +650,11 @@ mathjax: true
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
             
             <div class="clearfix"></div>
