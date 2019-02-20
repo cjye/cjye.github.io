@@ -7,7 +7,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://hexo.dulada.com">
-  <title>Tag: hexo | Arley的博客</title>
+  <title>1.类和对象的概念 | Arley的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
       <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -26,17 +26,18 @@
       </style>
 
   
-  <meta name="description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Arley的博客">
-<meta property="og:url" content="https://hexo.dulada.com/tags/hexo/index.html">
+  <meta name="description" content="类是抽象的概念，对象才是具体的事物人类：抽象的概念；对象：科比、韦德；">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1.类和对象的概念">
+<meta property="og:url" content="https://hexo.dulada.com/php-high-level-syntax-1.html">
 <meta property="og:site_name" content="Arley的博客">
-<meta property="og:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
+<meta property="og:description" content="类是抽象的概念，对象才是具体的事物人类：抽象的概念；对象：科比、韦德；">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-18T09:52:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Arley的博客">
-<meta name="twitter:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
+<meta name="twitter:title" content="1.类和对象的概念">
+<meta name="twitter:description" content="类是抽象的概念，对象才是具体的事物人类：抽象的概念；对象：科比、韦德；">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -210,60 +211,255 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-php-high-level-syntax-1" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hexo-comment-system.html" class="archive-article-date">
-  	<time datetime="2019-02-19T01:18:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hexo-comment-system.html">yilia主题的hexo博客添加留言评论系统valine</a>
+    <h1 class="article-title" itemprop="name">
+      1.类和对象的概念
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/php-high-level-syntax-1.html" class="archive-article-date">
+  	<time datetime="2017-12-06T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
+</a>
+        
+             <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+        </span> 
+        
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="类是抽象的概念，对象才是具体的事物"><a href="#类是抽象的概念，对象才是具体的事物" class="headerlink" title="类是抽象的概念，对象才是具体的事物"></a>类是抽象的概念，对象才是具体的事物</h1><p>人类：抽象的概念；<br>对象：科比、韦德；</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">----类-------|  对象</span><br><span class="line">汽车  | 路虎 |  你的路虎</span><br><span class="line">电脑  | Mac  |  你的mac</span><br></pre></td></tr></table></figure>
+<p>官方概念：类是对象的抽象，对象是类的具象；</p>
+<h4 id="类的简单使用"><a href="#类的简单使用" class="headerlink" title="类的简单使用"></a>类的简单使用</h4><p>属性和行为：<br>属性==&gt; 变量<br>行为==&gt; 方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">人类</span><br><span class="line">&#123;</span><br><span class="line">    年龄；</span><br><span class="line">    吃饭；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--定义类--&gt;</span><br><span class="line">class Person &#123;</span><br><span class="line">    public $age;</span><br><span class="line">    public function eat()&#123;</span><br><span class="line">        echo &apos;我在吃饭&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!--定义对象--&gt;</span><br><span class="line">&lt;!--方法一--&gt;</span><br><span class="line">&lt;!--通过new关键字来创建一个对象--&gt;</span><br><span class="line">$xiaoming = new Person();</span><br><span class="line"></span><br><span class="line">&lt;!--方法二--&gt;</span><br><span class="line">通过类名子符串来创建对象</span><br><span class="line">$name = &apos;Person&apos;;</span><br><span class="line">$xiaoming = new $name();</span><br><span class="line"></span><br><span class="line">&lt;!--访问属性或方法：--&gt;</span><br><span class="line">&lt;!--访问属性----不加$符号--&gt;</span><br><span class="line">$xiaoming -&gt; age;</span><br><span class="line">&lt;!--访问方法---函数名 以小括号结尾--&gt;</span><br><span class="line">$xiaoming -&gt; eat();</span><br><span class="line"></span><br><span class="line">&lt;!--设置属性--&gt;</span><br><span class="line">$xiaoming -&gt; age = 18;</span><br></pre></td></tr></table></figure>
+<p>大驼峰命名原则</p>
+<h6 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h6><p>创建对象的时候初始化自动调用的魔术方法<br>__construct();</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Person </span><br><span class="line">&#123;</span><br><span class="line">    public $name ;</span><br><span class="line">    public $age ;</span><br><span class="line">    </span><br><span class="line">    public function __construct($name,$age)</span><br><span class="line">    &#123;</span><br><span class="line">        &lt;!--在类里面访问自己的成员属性--&gt;</span><br><span class="line">        &lt;!--$this 代表的就是当前的对象--&gt;</span><br><span class="line">        $this -&gt; name = $name ;</span><br><span class="line">        $this -&gt; age = $age;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public function test1 ()&#123;</span><br><span class="line">        echo &apos;今天天气真好&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    public function test2 ()&#123;</span><br><span class="line">        $this -&gt; test1();</span><br><span class="line">        eho &apos;适合出去走走~~&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$NIU = new Person (&apos;大牛&apos;，22)；</span><br><span class="line"></span><br><span class="line">&lt;!--$ming  = new Person(&apos;小明&apos;18)；--&gt;</span><br><span class="line">&lt;!--$niu = new Person(&apos;牛&apos;，20)--&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h6>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <!-- <img src="//pan.baidu.com/share/qrcode?url=https://hexo.dulada.com/php-high-level-syntax-1.html" alt="微信分享二维码"> -->
+      <img src="http://bshare.optimix.asia/barCode?site=weixin&url=https://hexo.dulada.com/php-high-level-syntax-1.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/php-high-level-syntax-2.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          2.继承
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/php-basics-13.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">13.正则</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#类是抽象的概念，对象才是具体的事物"><span class="toc-number">1.</span> <span class="toc-text">类是抽象的概念，对象才是具体的事物</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#类的简单使用"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">类的简单使用</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#构造方法"><span class="toc-number">1.0.0.1.0.1.</span> <span class="toc-text">构造方法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#this关键字"><span class="toc-number">1.0.0.1.0.2.</span> <span class="toc-text">this关键字</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments {
+          margin: 30px;
+          padding: 10px;
+          background: #fff
+        }
+  
+        @media screen and (max-width:800px) {
+          .comments {
+            margin: auto;
+            padding: 10px;
+            background: #fff
+          }
+        }
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "bOJwV7Fp9sTeU13FHU8Hn3JA-gzGzoHsz",
+            app_key: "TReyM4HINmTQqhqgFzMax2Ix",
+            placeholder: "Just go go",
+            avatar:"monsterid"
+        });
+   
+</script>
+    </section>
+    
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+
 
 
           </div>
@@ -346,9 +542,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

@@ -7,7 +7,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://hexo.dulada.com">
-  <title>Tag: hexo | Arley的博客</title>
+  <title>3.魔术方法 | Arley的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
       <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -26,17 +26,18 @@
       </style>
 
   
-  <meta name="description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Arley的博客">
-<meta property="og:url" content="https://hexo.dulada.com/tags/hexo/index.html">
+  <meta name="description" content="系统在特定的时机自动调用的方法 常用的魔术方法   get /set12345678__get     触发时机：对象在外部访问私有成员或者受保护的属性时调用    该方法有一个参数：参数就是属性名__set    触发时机：对象在外部设置私有或者受保护成员值得时候调用    该方法有两个参数：    参数1：成员的属性名    参数2：要设置的值">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3.魔术方法">
+<meta property="og:url" content="https://hexo.dulada.com/php-high-level-syntax-3.html">
 <meta property="og:site_name" content="Arley的博客">
-<meta property="og:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
+<meta property="og:description" content="系统在特定的时机自动调用的方法 常用的魔术方法   get /set12345678__get     触发时机：对象在外部访问私有成员或者受保护的属性时调用    该方法有一个参数：参数就是属性名__set    触发时机：对象在外部设置私有或者受保护成员值得时候调用    该方法有两个参数：    参数1：成员的属性名    参数2：要设置的值">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-18T09:54:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Arley的博客">
-<meta name="twitter:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
+<meta name="twitter:title" content="3.魔术方法">
+<meta name="twitter:description" content="系统在特定的时机自动调用的方法 常用的魔术方法   get /set12345678__get     触发时机：对象在外部访问私有成员或者受保护的属性时调用    该方法有一个参数：参数就是属性名__set    触发时机：对象在外部设置私有或者受保护成员值得时候调用    该方法有两个参数：    参数1：成员的属性名    参数2：要设置的值">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -210,60 +211,303 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-php-high-level-syntax-3" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hexo-comment-system.html" class="archive-article-date">
-  	<time datetime="2019-02-19T01:18:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hexo-comment-system.html">yilia主题的hexo博客添加留言评论系统valine</a>
+    <h1 class="article-title" itemprop="name">
+      3.魔术方法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/php-high-level-syntax-3.html" class="archive-article-date">
+  	<time datetime="2017-12-08T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-08</time>
+</a>
+        
+             <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+        </span> 
+        
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="系统在特定的时机自动调用的方法"><a href="#系统在特定的时机自动调用的方法" class="headerlink" title="系统在特定的时机自动调用的方法"></a>系统在特定的时机自动调用的方法</h4><ol>
+<li>常用的魔术方法</li>
+</ol>
+<ul>
+<li>get /set<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__get </span><br><span class="line">    触发时机：对象在外部访问私有成员或者受保护的属性时调用</span><br><span class="line">    该方法有一个参数：参数就是属性名</span><br><span class="line">__set</span><br><span class="line">    触发时机：对象在外部设置私有或者受保护成员值得时候调用</span><br><span class="line">    该方法有两个参数：</span><br><span class="line">    参数1：成员的属性名</span><br><span class="line">    参数2：要设置的值</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<p>__get</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">class Person </span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    public $name = &apos;小明&apos;；</span><br><span class="line">    protected  $age = 18;</span><br><span class="line">    private $height = 187;</span><br><span class="line">    public function __get($name)</span><br><span class="line">    &#123;</span><br><span class="line">        if($name == &apos;age&apos;) &#123;</span><br><span class="line">            return $this -&gt; age ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //__set</span><br><span class="line">    public function  __set($name,$value)</span><br><span class="line">    &#123;</span><br><span class="line">        //var_dump($name ,$value);</span><br><span class="line">        if($name ==&apos;age &apos;)&#123;</span><br><span class="line">            $this -&gt; age = $value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$niu  = new Person ();</span><br><span class="line">echo $niu -&gt; age;</span><br><span class="line">&lt;!--__set:--&gt;</span><br><span class="line">$niu-&gt;age = 30;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>unset /isset</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">在外部可以通过unset 销毁对象中public属性</span><br><span class="line">__unset</span><br><span class="line">    触发时机：对象在外部销毁私有或者受保护成员属性的时候调用</span><br><span class="line">    该方法有一个参数：参数就是私有的成员属性名</span><br><span class="line">__isset </span><br><span class="line">    触发时机：对象在外部判断私有或者受保护成员属性的时候调用</span><br><span class="line">    该方法有一个参数：参数就是私有成员的属性名</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">    public $name ;</span><br><span class="line">    protected $age;</span><br><span class="line">    private $height;</span><br><span class="line">    </span><br><span class="line">    public function __unset($name)&#123;</span><br><span class="line">        if($name ==&apos;age&apos;)&#123;</span><br><span class="line">            unset($this-&gt;age;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$niu = new Person();</span><br><span class="line">//unset($niu-&gt; name);</span><br><span class="line">unset($niu -&gt;age);</span><br></pre></td></tr></table></figure>
+<p>__isset:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class Person </span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    public $name = &apos;小明&apos;；</span><br><span class="line">    protected  $age = 18;</span><br><span class="line">    private $height = 187;</span><br><span class="line">    public function __get($name)</span><br><span class="line">    &#123;</span><br><span class="line">        if($name == &apos;age&apos;) &#123;</span><br><span class="line">            return $this -&gt; age ;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //__set</span><br><span class="line">    public function  __set($name,$value)</span><br><span class="line">    &#123;</span><br><span class="line">        //var_dump($name ,$value);</span><br><span class="line">        if($name ==&apos;age &apos;)&#123;</span><br><span class="line">            $this -&gt; age = $value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public function __isset ($name)</span><br><span class="line">    &#123;</span><br><span class="line">        if($name == &apos;age&apos;)&#123;</span><br><span class="line">            return isset($this -&gt;$name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$niu = new Person();</span><br><span class="line"></span><br><span class="line">$niu -&gt; age  = 100;</span><br><span class="line">var_dump(isset($niu-&gt;age));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>析构方法__destruct:对象被销毁时自动调用</li>
+<li>__toString(了解)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">触发时机：echo 一个对象的时候被调用</span><br><span class="line">该函数需要return一个字符串</span><br></pre></td></tr></table></figure>
+<ul>
+<li>__debugInfo</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">触发时机：var_dump 一个对象的时候触发（控制打印的信息）</span><br><span class="line">该函数需要return 一个数组</span><br></pre></td></tr></table></figure>
+<ul>
+<li>__call</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">触发时机：当调用一个不存在对象方法的时候触发</span><br><span class="line">参数1：函数名</span><br><span class="line">参数2：是一个数组，函数中的参数都被存放到这个数组中</span><br></pre></td></tr></table></figure>
+<ul>
+<li>__callStatic</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">触发时机：当调用一个不存在静态方法的时候触发</span><br><span class="line">参数1：函数名</span><br><span class="line">参数2：是一个数组，函数中的参数都被存放到这个数组中</span><br></pre></td></tr></table></figure>
+<ul>
+<li>序列化serialize</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">class Person</span><br><span class="line">&#123;</span><br><span class="line">    public $name ;</span><br><span class="line">    public $height;</span><br><span class="line">    public $age;</span><br><span class="line">    </span><br><span class="line">    fucntion __construct($name,$value)&#123;</span><br><span class="line">        $this -&gt; name = $name;</span><br><span class="line">        $this -&gt; age = $age;</span><br><span class="line">        $this - $height = $height;</span><br><span class="line">    &#125;</span><br><span class="line">    //如果只想序列化&apos;age&apos;,&apos;height&apos;;</span><br><span class="line">    function __sleep()&#123;</span><br><span class="line">        return[&apos;age&apos;,&apos;height&apos;];</span><br><span class="line">    &#125;</span><br><span class="line">    function __weakup()</span><br><span class="line">    &#123;</span><br><span class="line">        echo &apos;__weakup&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    function __clone()</span><br><span class="line">    &#123;</span><br><span class="line">        $this -&gt;age  = 22;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$niu = new Person (&apos;xiaoming&apos;,18,180);</span><br><span class="line"></span><br><span class="line">$str = serialize($niu);</span><br><span class="line">file_put_contents(&apos;niu.txt&apos;,$str);</span><br><span class="line">//反序列化</span><br><span class="line">$str = file_get_contents(&apos;niu.txt&apos;);</span><br><span class="line">$obj = unserialize($str);</span><br><span class="line"></span><br><span class="line">//clone</span><br><span class="line">$obj = clone $niu;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>反序列化 unserialize</p>
+</li>
+<li><p><strong>sleep(了解)<br>通过序列化的字符串  反序列化一个对象  在执行反序列化的时候先执行 </strong>wekup()方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">触发时机:在序列化一个对象的时候调用</span><br><span class="line">返回值：必须是一个数组，数组中写你想要的序列化的成员的属性名</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>__wekeup</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">触发时机：在发序列化一个对象的时候</span><br><span class="line">反序列化成功后，想要让对象执行一些初始化方法 可以写到这个函数中</span><br></pre></td></tr></table></figure>
+<ul>
+<li>__clone</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">触发时机：在克隆一个对象的时候调用 </span><br><span class="line">在这里面可以对克隆出来的对象的属性做一些操作</span><br></pre></td></tr></table></figure>
+<ul>
+<li>__autoload(这是唯一的一个卸载类外的魔术方法)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">触发时机：  new 一个对象的时候，当前脚本没有这个类，那么就会触发这个方法</span><br><span class="line">参数：就是该类的类名字符串</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">class Person</span><br><span class="line">&#123;</span><br><span class="line">    public $name ;</span><br><span class="line">    public $height;</span><br><span class="line">    public $age;</span><br><span class="line">    </span><br><span class="line">    fucntion __construct($name,$value)&#123;</span><br><span class="line">        $this -&gt; name = $name;</span><br><span class="line">        $this -&gt; age = $age;</span><br><span class="line">        $this - $height = $height;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">function __autoload($className)&#123;</span><br><span class="line">    $file = $className .&apos;.php&apos;;</span><br><span class="line">    include $file;</span><br><span class="line">&#125;</span><br><span class="line">$dog = new Dog();</span><br></pre></td></tr></table></figure>
+<p>2. </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <!-- <img src="//pan.baidu.com/share/qrcode?url=https://hexo.dulada.com/php-high-level-syntax-3.html" alt="微信分享二维码"> -->
+      <img src="http://bshare.optimix.asia/barCode?site=weixin&url=https://hexo.dulada.com/php-high-level-syntax-3.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/php-high-level-syntax-4.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          4.常量、静态属性、静态方法
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/php-high-level-syntax-2.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2.继承</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#系统在特定的时机自动调用的方法"><span class="toc-number">1.</span> <span class="toc-text">系统在特定的时机自动调用的方法</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments {
+          margin: 30px;
+          padding: 10px;
+          background: #fff
+        }
+  
+        @media screen and (max-width:800px) {
+          .comments {
+            margin: auto;
+            padding: 10px;
+            background: #fff
+          }
+        }
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "bOJwV7Fp9sTeU13FHU8Hn3JA-gzGzoHsz",
+            app_key: "TReyM4HINmTQqhqgFzMax2Ix",
+            placeholder: "Just go go",
+            avatar:"monsterid"
+        });
+   
+</script>
+    </section>
+    
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+
 
 
           </div>
@@ -346,9 +590,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

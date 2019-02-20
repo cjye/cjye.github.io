@@ -18,8 +18,8 @@
   
   <entry>
     <title>yilia主题的hexo博客添加留言评论系统valine</title>
-    <link href="https://hexo.dulada.com/2019/02/19/hexo-comment-system/"/>
-    <id>https://hexo.dulada.com/2019/02/19/hexo-comment-system/</id>
+    <link href="https://hexo.dulada.com/hexo-comment-system.html"/>
+    <id>https://hexo.dulada.com/hexo-comment-system.html</id>
     <published>2019-02-19T01:18:53.000Z</published>
     <updated>2019-02-19T04:00:36.000Z</updated>
     
@@ -40,8 +40,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://hexo.dulada.com/2019/02/16/20190216/"/>
-    <id>https://hexo.dulada.com/2019/02/16/20190216/</id>
+    <link href="https://hexo.dulada.com/20190216.html"/>
+    <id>https://hexo.dulada.com/20190216.html</id>
     <published>2019-02-16T12:00:00.000Z</published>
     <updated>2019-02-18T14:07:38.000Z</updated>
     
@@ -66,8 +66,8 @@
   
   <entry>
     <title>1.验证码实例化</title>
-    <link href="https://hexo.dulada.com/2018/01/11/php-Advanced-combat-1/"/>
-    <id>https://hexo.dulada.com/2018/01/11/php-Advanced-combat-1/</id>
+    <link href="https://hexo.dulada.com/php-Advanced-combat-1.html"/>
+    <id>https://hexo.dulada.com/php-Advanced-combat-1.html</id>
     <published>2018-01-11T01:10:10.000Z</published>
     <updated>2019-02-18T09:57:54.000Z</updated>
     
@@ -90,8 +90,8 @@
   
   <entry>
     <title>6.trait与命名空间</title>
-    <link href="https://hexo.dulada.com/2017/12/11/php-high-level-syntax-6/"/>
-    <id>https://hexo.dulada.com/2017/12/11/php-high-level-syntax-6/</id>
+    <link href="https://hexo.dulada.com/php-high-level-syntax-6.html"/>
+    <id>https://hexo.dulada.com/php-high-level-syntax-6.html</id>
     <published>2017-12-11T01:10:10.000Z</published>
     <updated>2019-02-18T09:56:18.000Z</updated>
     
@@ -110,8 +110,8 @@
   
   <entry>
     <title>5.抽象类与接口</title>
-    <link href="https://hexo.dulada.com/2017/12/10/php-high-level-syntax-5/"/>
-    <id>https://hexo.dulada.com/2017/12/10/php-high-level-syntax-5/</id>
+    <link href="https://hexo.dulada.com/php-high-level-syntax-5.html"/>
+    <id>https://hexo.dulada.com/php-high-level-syntax-5.html</id>
     <published>2017-12-10T01:10:10.000Z</published>
     <updated>2019-02-18T09:55:40.000Z</updated>
     
@@ -130,8 +130,8 @@
   
   <entry>
     <title>4.常量、静态属性、静态方法</title>
-    <link href="https://hexo.dulada.com/2017/12/09/php-high-level-syntax-4/"/>
-    <id>https://hexo.dulada.com/2017/12/09/php-high-level-syntax-4/</id>
+    <link href="https://hexo.dulada.com/php-high-level-syntax-4.html"/>
+    <id>https://hexo.dulada.com/php-high-level-syntax-4.html</id>
     <published>2017-12-09T01:10:10.000Z</published>
     <updated>2019-02-18T09:55:08.000Z</updated>
     
@@ -153,8 +153,8 @@
   
   <entry>
     <title>3.魔术方法</title>
-    <link href="https://hexo.dulada.com/2017/12/08/php-high-level-syntax-3/"/>
-    <id>https://hexo.dulada.com/2017/12/08/php-high-level-syntax-3/</id>
+    <link href="https://hexo.dulada.com/php-high-level-syntax-3.html"/>
+    <id>https://hexo.dulada.com/php-high-level-syntax-3.html</id>
     <published>2017-12-08T01:10:10.000Z</published>
     <updated>2019-02-18T09:54:32.000Z</updated>
     
@@ -179,8 +179,8 @@
   
   <entry>
     <title>2.继承</title>
-    <link href="https://hexo.dulada.com/2017/12/07/php-high-level-syntax-2/"/>
-    <id>https://hexo.dulada.com/2017/12/07/php-high-level-syntax-2/</id>
+    <link href="https://hexo.dulada.com/php-high-level-syntax-2.html"/>
+    <id>https://hexo.dulada.com/php-high-level-syntax-2.html</id>
     <published>2017-12-07T01:10:10.000Z</published>
     <updated>2019-02-19T00:37:48.000Z</updated>
     
@@ -202,8 +202,8 @@
   
   <entry>
     <title>1.类和对象的概念</title>
-    <link href="https://hexo.dulada.com/2017/12/06/php-high-level-syntax-1/"/>
-    <id>https://hexo.dulada.com/2017/12/06/php-high-level-syntax-1/</id>
+    <link href="https://hexo.dulada.com/php-high-level-syntax-1.html"/>
+    <id>https://hexo.dulada.com/php-high-level-syntax-1.html</id>
     <published>2017-12-06T01:10:10.000Z</published>
     <updated>2019-02-18T09:52:30.000Z</updated>
     
@@ -222,8 +222,8 @@
   
   <entry>
     <title>13.正则</title>
-    <link href="https://hexo.dulada.com/2017/11/26/php-basics-13/"/>
-    <id>https://hexo.dulada.com/2017/11/26/php-basics-13/</id>
+    <link href="https://hexo.dulada.com/php-basics-13.html"/>
+    <id>https://hexo.dulada.com/php-basics-13.html</id>
     <published>2017-11-26T01:18:10.000Z</published>
     <updated>2019-02-18T01:19:14.000Z</updated>
     
@@ -245,8 +245,8 @@
   
   <entry>
     <title>12.文件上传</title>
-    <link href="https://hexo.dulada.com/2017/11/26/php-basics-12/"/>
-    <id>https://hexo.dulada.com/2017/11/26/php-basics-12/</id>
+    <link href="https://hexo.dulada.com/php-basics-12.html"/>
+    <id>https://hexo.dulada.com/php-basics-12.html</id>
     <published>2017-11-26T01:10:10.000Z</published>
     <updated>2019-02-18T01:17:58.000Z</updated>
     
@@ -265,8 +265,8 @@
   
   <entry>
     <title>11.文件操作</title>
-    <link href="https://hexo.dulada.com/2017/11/25/php-basics-11/"/>
-    <id>https://hexo.dulada.com/2017/11/25/php-basics-11/</id>
+    <link href="https://hexo.dulada.com/php-basics-11.html"/>
+    <id>https://hexo.dulada.com/php-basics-11.html</id>
     <published>2017-11-25T01:10:10.000Z</published>
     <updated>2019-02-18T01:17:08.000Z</updated>
     
@@ -285,8 +285,8 @@
   
   <entry>
     <title>10.gd库</title>
-    <link href="https://hexo.dulada.com/2017/11/24/php-basics-10/"/>
-    <id>https://hexo.dulada.com/2017/11/24/php-basics-10/</id>
+    <link href="https://hexo.dulada.com/php-basics-10.html"/>
+    <id>https://hexo.dulada.com/php-basics-10.html</id>
     <published>2017-11-24T01:10:10.000Z</published>
     <updated>2019-02-18T01:11:56.000Z</updated>
     
@@ -309,8 +309,8 @@
   
   <entry>
     <title>9.cookie 与  session</title>
-    <link href="https://hexo.dulada.com/2017/11/24/php-basics-9/"/>
-    <id>https://hexo.dulada.com/2017/11/24/php-basics-9/</id>
+    <link href="https://hexo.dulada.com/php-basics-9.html"/>
+    <id>https://hexo.dulada.com/php-basics-9.html</id>
     <published>2017-11-24T01:09:10.000Z</published>
     <updated>2019-02-18T01:09:54.000Z</updated>
     
@@ -329,8 +329,8 @@
   
   <entry>
     <title>8.php操作mysql</title>
-    <link href="https://hexo.dulada.com/2017/11/23/php-basics-8/"/>
-    <id>https://hexo.dulada.com/2017/11/23/php-basics-8/</id>
+    <link href="https://hexo.dulada.com/php-basics-8.html"/>
+    <id>https://hexo.dulada.com/php-basics-8.html</id>
     <published>2017-11-23T01:05:10.000Z</published>
     <updated>2019-02-18T01:06:58.000Z</updated>
     
@@ -354,8 +354,8 @@
   
   <entry>
     <title>7.MySQL</title>
-    <link href="https://hexo.dulada.com/2017/11/22/php-basics-7/"/>
-    <id>https://hexo.dulada.com/2017/11/22/php-basics-7/</id>
+    <link href="https://hexo.dulada.com/php-basics-7.html"/>
+    <id>https://hexo.dulada.com/php-basics-7.html</id>
     <published>2017-11-22T01:05:10.000Z</published>
     <updated>2019-02-18T01:09:10.000Z</updated>
     
@@ -374,8 +374,8 @@
   
   <entry>
     <title>6.文件包含及数组</title>
-    <link href="https://hexo.dulada.com/2017/11/22/php-basics-6/"/>
-    <id>https://hexo.dulada.com/2017/11/22/php-basics-6/</id>
+    <link href="https://hexo.dulada.com/php-basics-6.html"/>
+    <id>https://hexo.dulada.com/php-basics-6.html</id>
     <published>2017-11-22T01:03:10.000Z</published>
     <updated>2019-02-18T01:09:04.000Z</updated>
     
@@ -395,8 +395,8 @@
   
   <entry>
     <title>5.函数</title>
-    <link href="https://hexo.dulada.com/2017/11/21/php-basics-5/"/>
-    <id>https://hexo.dulada.com/2017/11/21/php-basics-5/</id>
+    <link href="https://hexo.dulada.com/php-basics-5.html"/>
+    <id>https://hexo.dulada.com/php-basics-5.html</id>
     <published>2017-11-21T00:59:10.000Z</published>
     <updated>2019-02-18T01:07:24.000Z</updated>
     
@@ -415,8 +415,8 @@
   
   <entry>
     <title>4.流程控制---为false的几种情况</title>
-    <link href="https://hexo.dulada.com/2017/11/21/php-basics-4/"/>
-    <id>https://hexo.dulada.com/2017/11/21/php-basics-4/</id>
+    <link href="https://hexo.dulada.com/php-basics-4.html"/>
+    <id>https://hexo.dulada.com/php-basics-4.html</id>
     <published>2017-11-21T00:58:10.000Z</published>
     <updated>2019-02-18T01:01:08.000Z</updated>
     
@@ -435,8 +435,8 @@
   
   <entry>
     <title>3.系统常量与运算符</title>
-    <link href="https://hexo.dulada.com/2017/11/21/php-basics-3/"/>
-    <id>https://hexo.dulada.com/2017/11/21/php-basics-3/</id>
+    <link href="https://hexo.dulada.com/php-basics-3.html"/>
+    <id>https://hexo.dulada.com/php-basics-3.html</id>
     <published>2017-11-21T00:56:10.000Z</published>
     <updated>2019-02-18T01:08:58.000Z</updated>
     

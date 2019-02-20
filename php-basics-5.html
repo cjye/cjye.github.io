@@ -7,7 +7,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://hexo.dulada.com">
-  <title>Tag: hexo | Arley的博客</title>
+  <title>5.函数 | Arley的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
       <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -26,17 +26,18 @@
       </style>
 
   
-  <meta name="description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Arley的博客">
-<meta property="og:url" content="https://hexo.dulada.com/tags/hexo/index.html">
+  <meta name="description" content="作用域定义就是一个变量的作用的范围，或者叫生命周期【内部变量】    就是函数体内声明的变量，内部变量的作用域 只在函数体内生效，程序执行完事以后自动销毁（垃圾回收机制）">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5.函数">
+<meta property="og:url" content="https://hexo.dulada.com/php-basics-5.html">
 <meta property="og:site_name" content="Arley的博客">
-<meta property="og:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
+<meta property="og:description" content="作用域定义就是一个变量的作用的范围，或者叫生命周期【内部变量】    就是函数体内声明的变量，内部变量的作用域 只在函数体内生效，程序执行完事以后自动销毁（垃圾回收机制）">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-18T01:07:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Arley的博客">
-<meta name="twitter:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
+<meta name="twitter:title" content="5.函数">
+<meta name="twitter:description" content="作用域定义就是一个变量的作用的范围，或者叫生命周期【内部变量】    就是函数体内声明的变量，内部变量的作用域 只在函数体内生效，程序执行完事以后自动销毁（垃圾回收机制）">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -210,60 +211,389 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-php-basics-5" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hexo-comment-system.html" class="archive-article-date">
-  	<time datetime="2019-02-19T01:18:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hexo-comment-system.html">yilia主题的hexo博客添加留言评论系统valine</a>
+    <h1 class="article-title" itemprop="name">
+      5.函数
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/php-basics-5.html" class="archive-article-date">
+  	<time datetime="2017-11-21T00:59:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
+</a>
+        
+             <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+        </span> 
+        
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><p>定义<br><br>就是一个变量的作用的范围，或者叫生命周期<br><br>【内部变量】<br><br>    就是函数体内声明的变量，内部变量的作用域 只在函数体内生效，程序执行完事以后自动销毁（垃圾回收机制）</p>
+<a id="more"></a>
+<p>【外局变量】<br><br>外部变量就是在函数体外声明的变量，不能在函数体内使用<br><br>函数体外的变量名字可以与函数体内的变量的名字一样，但是一般不这么做<br><br>【超全局变量】<br><br>外部变量和内部变量是同一个变量<br><br>$_GRT $_POST  $_FILE $_COOKIE $_SESSION $GLOBALS</p>
+<p><hr></p>
+<h1 id="重点"><a href="#重点" class="headerlink" title="重点"></a>重点</h1><p>【静态变量】<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">funciton total()&#123;</span><br><span class="line">    static $num = 2;</span><br><span class="line">    $num *= 2;</span><br><span class="line">    echo $num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">total();//4</span><br><span class="line">total();//8</span><br><span class="line">total();//16</span><br><span class="line"></span><br><span class="line">这个变量只会初始化一次 在运行的时候他会记录上一次的值 static 变量不会销毁</span><br></pre></td></tr></table></figure>
+<p>【形参和返回值得类型的约束】<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function sum(int $num1,int $num2)&#123;//形参的</span><br><span class="line">    return $num1 + $num2;</span><br><span class="line">&#125;</span><br><span class="line">var_dump(sum(&apos;2.3&apos;,3));</span><br></pre></td></tr></table></figure></p>
+<p>小括号后面加上：加上数值类型 把函数体返回的值给你转换成你限定的类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function sum ($num1, $num2):string </span><br><span class="line">&#123;</span><br><span class="line">    return $num1 + $num2;    </span><br><span class="line">&#125;</span><br><span class="line">var_dump(sum(4,5));</span><br></pre></td></tr></table></figure></p>
+<p>php7 的新特性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function test (...$arr)&#123;</span><br><span class="line">    var_dump($arr);</span><br><span class="line">&#125;</span><br><span class="line">test(1,2,3,4,5,6,7,8,9);</span><br><span class="line">function test($a,$b,$c)</span><br><span class="line">&#123;</span><br><span class="line">    var_dump($a,$b,$c);</span><br><span class="line">&#125;</span><br><span class="line">$arr = [1,2,3];</span><br><span class="line">test(...$arr);</span><br><span class="line">//...$arr 这样的传参的意思是把数组里面的值一一赋值给形参</span><br></pre></td></tr></table></figure></p>
+<p>【匿名函数】<br><br>所谓的匿名函数就是没有名字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//如果想用匿名函数 赋值给一个变量 该怎么调用就怎么调用 变量加上()</span><br><span class="line">$func = function()&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">$func();</span><br></pre></td></tr></table></figure></p>
+<h1 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h1><h3 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h3><ol>
+<li>随机<ul>
+<li>rand</li>
+<li>mt_rand</li>
+</ul>
+</li>
+<li>小数<ul>
+<li>floor:向上取整</li>
+<li>ceil:向下取整</li>
+<li>round:四舍五入法取整</li>
+</ul>
+</li>
+<li>其他<ul>
+<li>abs:绝对值</li>
+<li>pi:圆周率</li>
+<li>M_PI:常量，与Pi()函数的返回值相同</li>
+<li>pow:指数表达式</li>
+<li>max:最大值</li>
+<li>min:最小值</li>
+</ul>
+</li>
+<li>字符串函数：</li>
+<li>大小写转换：<ul>
+<li>strtolower: 转换为小写</li>
+<li>strtoupper: 转换为大写</li>
+<li>lcfirst: 首字母小写</li>
+<li>ucfirst:首字母大写</li>
+<li>ucwords: 每个单词首字母大写</li>
+</ul>
+</li>
+<li>空白处理：<ul>
+<li>trim: 去掉首尾的空白字符</li>
+<li>ltrim: 去掉开头的空白字符</li>
+<li>rtrim/chop: 去掉结尾的空白字符</li>
+</ul>
+</li>
+<li>查找定位：<ul>
+<li>strstr/strchr:返回首次出现到结尾的内容</li>
+<li>strrchr:返回最后一次出现在结尾的内容</li>
+<li>stristr:strstr 忽略大小写的版本</li>
+<li>stropos:返回首次出现的位置</li>
+<li>stripos:strpos忽略大小写的版本</li>
+<li>strrpos:返回最后一次出现的位置</li>
+<li>strripos:strrpos 忽略大小写的版本</li>
+<li>substr:子串提取，可以通过下标的方式获取单个字符($str[n])</li>
+<li>strpbrk:返回（字符列表中任意字符）首次出现到结尾的内容 </li>
+</ul>
+</li>
+<li>比较：<ul>
+<li>strcmp: 二进制比较字符串</li>
+<li>strcasecmp:strcmp 忽略大小写</li>
+<li>strnatcmp:自然顺序比较</li>
+<li>strnatcasecmp:strnatcmp的忽略大小写版本</li>
+</ul>
+</li>
+<li>顺序：<ul>
+<li>str_shuffle:打乱顺序</li>
+<li>strrev:逆序字符串</li>
+</ul>
+</li>
+<li>转换：<ul>
+<li>chr:将ASCII 码值转换为字符</li>
+</ul>
+</li>
+</ol>
+<h3 id="数组常用函数"><a href="#数组常用函数" class="headerlink" title="数组常用函数"></a>数组常用函数</h3><ol>
+<li>数组中元素指针的移动<ul>
+<li>next：向后 移动，指向下一个元素</li>
+<li>prev：向前移动，指向前一个元素</li>
+<li>end:指向最后一个元素</li>
+<li>reset：复位，重新指向第一个元素</li>
+</ul>
+</li>
+<li>键和值相关的操作<ul>
+<li>key:获取数组当前元素的键</li>
+<li>current/pos:获取数组当前元素的值</li>
+<li>array_keys:获取所有的键</li>
+<li>array_values:获取所有的值，并为其建立数字索引</li>
+<li>array_key_exists/key_exists:判断给定的键是否在数组中</li>
+<li>in_array:判定给定的值返回对应的键名</li>
+<li>array_search:根据值返回对应的键名</li>
+<li>array_count_values:统计数组中所有的值出现的次数</li>
+</ul>
+</li>
+<li>添加删除元素<ul>
+<li>array_shift:将数组开头的元素移出数组</li>
+<li>array_unshift:向数组开头添加添加一个或更多个元素</li>
+<li>array_push:向数组末尾加入一个或多个元素</li>
+<li>array_pop:弹出数组末尾的一个元素</li>
+</ul>
+</li>
+<li>排序相关<ul>
+<li>shuffle:将数组打乱（转换为索引数组）</li>
+<li>sort:对数组进行排序（排序之后重新索引）</li>
+<li>rsort:对数组进行逆向排序</li>
+<li>asort:对数组进行拍讯并保持索引关系</li>
+<li>arsort:对数组进行逆向排序并保持索引关系</li>
+<li>natsort:用自然顺序算法进行数组进行排序</li>
+<li>natcasesort:natsort忽略大小写的版本</li>
+<li>ksort：对数组按照键名进行排序</li>
+<li>krsort:对数组按照键名逆向排序</li>
+<li>usort：使用用户自定义的比较函数对数组的值进行排序</li>
+<li>uksort:使用自定义的比较函数对数组的键名进行排序</li>
+</ul>
+</li>
+<li>元素运算<ul>
+<li>array_sum:计算数组中所有值的和</li>
+<li>array_product:计算数组中所有值的和</li>
+<li>count/sizeof:计算数组中的元素的个数</li>
+</ul>
+</li>
+<li>创建数组<ul>
+<li>range:建立一个包含指定范围单元的数组（可以指定步幅，可以指定递减）</li>
+<li>compact :创建一个包含变量与其值的数组</li>
+<li>extract:从数组中将变量导入到当前的符号表（与compact功能相反）</li>
+<li>array ： 新建一个数组</li>
+<li>array_merge:合并一个或多个数组（关联会覆盖，索引会重新索引，若想保留索引可以使用‘+’）</li>
+<li>array_merge_recursive:递归合并一个或多个数组</li>
+<li>array_combine:用一个数组的值作为键名，另一个数组的值作为值创建数组</li>
+</ul>
+</li>
+<li>其他<ul>
+<li>array_chunk:将数组分割成指定长度的小数组</li>
+<li>array_map:将回调函数作用到每个元素上，返回的处理的结果数组（新数组）</li>
+<li>array_walk:将回调函数作用到每个元素上（会改变原数组），返回真假</li>
+<li>array_filter:使用回调函数过滤数组（回调函数返回真的才会出现在结果中）</li>
+<li>array_flip:返回交换键和值后的新数组</li>
+<li>array_rand：随机从数组中抽取一个或多个元素的键</li>
+<li>array_replace:使用后面的数组中的元素替换第一个数组中的元素</li>
+<li>array_reverse:返回一个单元顺序相反的数组（关联数组会保持键值对应，索引数组需要传递第二个参数）</li>
+<li>array_unique：移出数组中重复的值</li>
+</ul>
+</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <!-- <img src="//pan.baidu.com/share/qrcode?url=https://hexo.dulada.com/php-basics-5.html" alt="微信分享二维码"> -->
+      <img src="http://bshare.optimix.asia/barCode?site=weixin&url=https://hexo.dulada.com/php-basics-5.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/php-basics-6.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          6.文件包含及数组
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/php-basics-4.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">4.流程控制---为false的几种情况</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#作用域"><span class="toc-number">1.</span> <span class="toc-text">作用域</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#重点"><span class="toc-number"></span> <span class="toc-text">重点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用函数"><span class="toc-number"></span> <span class="toc-text">常用函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数学函数"><span class="toc-number"></span> <span class="toc-text">数学函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组常用函数"><span class="toc-number"></span> <span class="toc-text">数组常用函数</span></a>
+                    </li></ol></li></div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments {
+          margin: 30px;
+          padding: 10px;
+          background: #fff
+        }
+  
+        @media screen and (max-width:800px) {
+          .comments {
+            margin: auto;
+            padding: 10px;
+            background: #fff
+          }
+        }
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "bOJwV7Fp9sTeU13FHU8Hn3JA-gzGzoHsz",
+            app_key: "TReyM4HINmTQqhqgFzMax2Ix",
+            placeholder: "Just go go",
+            avatar:"monsterid"
+        });
+   
+</script>
+    </section>
+    
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+
 
 
           </div>
@@ -346,9 +676,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

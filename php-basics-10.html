@@ -7,7 +7,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://hexo.dulada.com">
-  <title>Tag: hexo | Arley的博客</title>
+  <title>10.gd库 | Arley的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
       <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -26,17 +26,18 @@
       </style>
 
   
-  <meta name="description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Arley的博客">
-<meta property="og:url" content="https://hexo.dulada.com/tags/hexo/index.html">
+  <meta name="description" content="mime文件的类型 位置：  wamp64&amp;gt;bin&amp;gt;apache&amp;gt;apache2.4.17&amp;gt;conf&amp;gt;mime.types">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="10.gd库">
+<meta property="og:url" content="https://hexo.dulada.com/php-basics-10.html">
 <meta property="og:site_name" content="Arley的博客">
-<meta property="og:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
+<meta property="og:description" content="mime文件的类型 位置：  wamp64&amp;gt;bin&amp;gt;apache&amp;gt;apache2.4.17&amp;gt;conf&amp;gt;mime.types">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-18T01:11:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Arley的博客">
-<meta name="twitter:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
+<meta name="twitter:title" content="10.gd库">
+<meta name="twitter:description" content="mime文件的类型 位置：  wamp64&amp;gt;bin&amp;gt;apache&amp;gt;apache2.4.17&amp;gt;conf&amp;gt;mime.types">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -210,60 +211,284 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-php-basics-10" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hexo-comment-system.html" class="archive-article-date">
-  	<time datetime="2019-02-19T01:18:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hexo-comment-system.html">yilia主题的hexo博客添加留言评论系统valine</a>
+    <h1 class="article-title" itemprop="name">
+      10.gd库
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/php-basics-10.html" class="archive-article-date">
+  	<time datetime="2017-11-24T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-24</time>
+</a>
+        
+             <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+        </span> 
+        
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>mime文件的类型</p>
+<p>位置：</p>
+<blockquote>
+<p>wamp64&gt;bin&gt;apache&gt;apache2.4.17&gt;conf&gt;mime.types</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">image/bmp					bmp</span><br><span class="line">image/cgm					cgm</span><br><span class="line"># image/example</span><br><span class="line"># image/fits</span><br><span class="line">image/g3fax					g3</span><br><span class="line">image/gif					gif</span><br><span class="line">image/ief					ief</span><br><span class="line"># image/jp2</span><br><span class="line">image/jpeg					jpeg jpg jpe</span><br><span class="line"># image/jpm</span><br><span class="line"># image/jpx</span><br><span class="line">image/ktx					ktx</span><br><span class="line"># image/naplps</span><br><span class="line">image/png					png</span><br><span class="line">image/prs.btif					btif</span><br><span class="line"># image/prs.pti</span><br><span class="line">image/sgi					sgi</span><br><span class="line">image/svg+xml					svg svgz</span><br><span class="line"># image/t38</span><br><span class="line">image/tiff					tiff tif</span><br><span class="line"># image/tiff-fx</span><br><span class="line">image/vnd.adobe.photoshop			psd</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># video/1d-interleaved-parityfec</span><br><span class="line">video/3gpp					3gp</span><br><span class="line"># video/3gpp-tt</span><br><span class="line">video/3gpp2					3g2</span><br><span class="line"># video/bmpeg</span><br><span class="line"># video/bt656</span><br><span class="line"># video/celb</span><br><span class="line"># video/dv</span><br><span class="line"># video/example</span><br><span class="line">video/h261					h261</span><br><span class="line">video/h263					h263</span><br><span class="line"># video/h263-1998</span><br><span class="line"># video/h263-2000</span><br><span class="line">video/h264					h264</span><br><span class="line"># video/h264-rcdo</span><br><span class="line"># video/h264-svc</span><br><span class="line">video/jpeg					jpgv</span><br><span class="line"># video/jpeg2000</span><br><span class="line">video/jpm					jpm jpgm</span><br><span class="line">video/mj2					mj2 mjp2</span><br><span class="line"># video/mp1s</span><br><span class="line"># video/mp2p</span><br><span class="line"># video/mp2t</span><br><span class="line">video/mp4					mp4 mp4v mpg4</span><br><span class="line"># video/mp4v-es</span><br><span class="line">video/mpeg					mpeg mpg mpe m1v m2v</span><br><span class="line"># video/mpeg4-generic</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"># audio/1d-interleaved-parityfec</span><br><span class="line"># audio/32kadpcm</span><br><span class="line"># audio/3gpp</span><br><span class="line"># audio/3gpp2</span><br><span class="line"># audio/ac3</span><br><span class="line">audio/adpcm					adp</span><br><span class="line"># audio/amr</span><br><span class="line"># audio/amr-wb</span><br><span class="line"># audio/amr-wb+</span><br><span class="line"># audio/asc</span><br><span class="line"># audio/atrac-advanced-lossless</span><br><span class="line"># audio/atrac-x</span><br><span class="line"># audio/atrac3</span><br><span class="line">audio/basic					au snd</span><br><span class="line"># audio/bv16</span><br><span class="line"># audio/bv32</span><br><span class="line"># audio/clearmode</span><br><span class="line"># audio/cn</span><br><span class="line"># audio/dat12</span><br><span class="line"># audio/dls</span><br><span class="line"># audio/dsr-es201108</span><br><span class="line"># audio/dsr-es202050</span><br><span class="line"># audio/dsr-es202211</span><br><span class="line"># audio/dsr-es202212</span><br><span class="line"># audio/dv</span><br><span class="line"># audio/dvi4</span><br><span class="line"># audio/eac3</span><br><span class="line"># audio/evrc</span><br><span class="line"># audio/evrc-qcp</span><br><span class="line"># audio/evrc0</span><br><span class="line"># audio/evrc1</span><br><span class="line"># audio/evrcb</span><br><span class="line"># audio/evrcb0</span><br><span class="line"># audio/evrcb1</span><br></pre></td></tr></table></figure>
+<h4 id="GD"><a href="#GD" class="headerlink" title="GD"></a>GD</h4><p>图像处理函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//创建画布</span><br><span class="line">$image = imagecreatetruecolor(600,600);</span><br><span class="line">// var_dump($image);</span><br><span class="line">// 创建颜色</span><br><span class="line">$green = imagecolorallocate($image,0,255,0);</span><br><span class="line">$red = imagecolorallocate($image,255,0,0);</span><br><span class="line">// 用gd库给咱们的函数去画画</span><br><span class="line">imageline($image,0,0,600,600,$red);</span><br><span class="line">imagefilledrectangle($image,10,10,50,50,$green);</span><br><span class="line">// 告诉浏览器mime类型</span><br><span class="line">header(&quot;Content-type:image/png&quot;);</span><br><span class="line">// 输出到浏览器或者可以存放你的本地</span><br><span class="line">imagepng($image);</span><br><span class="line">// 销毁资源</span><br><span class="line">imagedestroy($image);</span><br></pre></td></tr></table></figure>
+<p>关于gd的相关函数</p>
+<ol>
+<li>imagecreatetruecolor //创建一个画布</li>
+<li>imagecolorallocate //为一副图像分配颜色</li>
+<li>imagefill 填充</li>
+<li>imageline 画线</li>
+<li>输出</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">imagepng //输出（资源） 可以填写两个参数 一个：资源 两个：路径  文件名</span><br><span class="line">imagejpeg</span><br><span class="line">imagegif</span><br><span class="line">imagewbmp</span><br></pre></td></tr></table></figure>
+<p>形状<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">imagereactangle   矩形</span><br><span class="line">imagefilledreactangle 矩形并填充</span><br><span class="line">imagesetpixel 画像素 </span><br><span class="line">imagepolygon   画多边形</span><br><span class="line">imageellipse 椭圆</span><br><span class="line">imagefilledpolygon 多边形并填充</span><br><span class="line">imagefilledellipse 椭圆并填充</span><br><span class="line">imagefilledarc 饼状图</span><br></pre></td></tr></table></figure></p>
+<p>打开图片生成一个新的图片<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">imagecreatefromjpeg</span><br><span class="line">imagecreatefromgif</span><br><span class="line">imagecreatefrombmp</span><br><span class="line">imagecreatefrompng</span><br></pre></td></tr></table></figure></p>
+<p>注意</p>
+<p>告知浏览器文件的类型</p>
+<blockquote>
+<p>header(‘Content-type:image/png’);</p>
+</blockquote>
+<p>旋转</p>
+<blockquote>
+<p>imagerotate</p>
+</blockquote>
+<p>写字<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">imagestring 水平地画一行字符串， 不能写中文</span><br><span class="line">imagechar 画一个  不能中文</span><br><span class="line">imagettftext 可以写汉字（资源，字体大小，角度，坐标x,坐标y,颜色，样式（你从window,font),你要写的字符串）</span><br></pre></td></tr></table></figure></p>
+<p>拷贝并且合并<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">imagecopy</span><br><span class="line">imagecoopymerge</span><br><span class="line">   imagecopymerge ($dst,$src,152,305,0,0,266,280 ,100);</span><br><span class="line">   大图  戳 大图的开始坐标X,Y 小图 x y 小图的宽 高 透明度</span><br><span class="line">imagecopyresampled</span><br><span class="line">imagecopyresampled($dst, $src, 155, 310, 264,  300,  300, 144, 127);</span><br><span class="line">                    大图 小图  大X  大Y  小X  小Y 缩放 你测出来的宽 高</span><br></pre></td></tr></table></figure></p>
+<p>获取图片的信息</p>
+<blockquote>
+<p>getimagesize(‘图片资源’)； 获取图片的信息</p>
+</blockquote>
+<p>相关函数 创建图片资源函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">imagecreatetruecolor</span><br><span class="line">imagecreatefromjpeg</span><br><span class="line">imagecreatefromgif</span><br><span class="line">imagecreatefromwbmp</span><br><span class="line">imagecreatefrompng</span><br><span class="line">imagecolorallocate</span><br><span class="line">imagefilledreactangle</span><br><span class="line">imagesetpixel</span><br><span class="line">imageline</span><br><span class="line">imagereactangle</span><br><span class="line">imagepolygon</span><br><span class="line">imageellipse</span><br><span class="line">imagearc</span><br><span class="line"> </span><br><span class="line">imagefelledreactangle</span><br><span class="line">imagefilledpolygon</span><br><span class="line">imagefilledellpse</span><br><span class="line">imagefilledarc</span><br><span class="line">imagerotate</span><br><span class="line">imagestring</span><br><span class="line">imagechar</span><br><span class="line">imagettftext</span><br><span class="line">imagepng($img,[&apos;path&apos;])</span><br><span class="line">imagejpeg</span><br><span class="line">imagegif</span><br><span class="line">imagedestroy</span><br><span class="line">imagecopy</span><br><span class="line">imagecopymerge</span><br><span class="line">imagecoopyresampled</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <!-- <img src="//pan.baidu.com/share/qrcode?url=https://hexo.dulada.com/php-basics-10.html" alt="微信分享二维码"> -->
+      <img src="http://bshare.optimix.asia/barCode?site=weixin&url=https://hexo.dulada.com/php-basics-10.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/php-basics-11.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          11.文件操作
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/php-basics-9.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">9.cookie 与  session</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#GD"><span class="toc-number">1.</span> <span class="toc-text">GD</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments {
+          margin: 30px;
+          padding: 10px;
+          background: #fff
+        }
+  
+        @media screen and (max-width:800px) {
+          .comments {
+            margin: auto;
+            padding: 10px;
+            background: #fff
+          }
+        }
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "bOJwV7Fp9sTeU13FHU8Hn3JA-gzGzoHsz",
+            app_key: "TReyM4HINmTQqhqgFzMax2Ix",
+            placeholder: "Just go go",
+            avatar:"monsterid"
+        });
+   
+</script>
+    </section>
+    
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+
 
 
           </div>
@@ -346,9 +571,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,

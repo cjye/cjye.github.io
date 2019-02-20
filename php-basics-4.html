@@ -7,7 +7,7 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://hexo.dulada.com">
-  <title>Tag: hexo | Arley的博客</title>
+  <title>4.流程控制---为false的几种情况 | Arley的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
       <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
@@ -26,17 +26,18 @@
       </style>
 
   
-  <meta name="description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿,程序媛,极客,编程,代码,开源,IT网站,Developer,Programmer,Coder,Geek,html,css,css3,用户体验">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Arley的博客">
-<meta property="og:url" content="https://hexo.dulada.com/tags/hexo/index.html">
+  <meta name="description" content="为false的几种情况123456789101112$str = 0.000001;//trueStr = &amp;apos;&amp;apos;; //false$str = &amp;apos; &amp;apos;;//true$str = &amp;apos;0&amp;apos;; //true$str = &amp;apos;0.00000&amp;apos;;//true$str = [];// flase;$str = null;//作为判断">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4.流程控制---为false的几种情况">
+<meta property="og:url" content="https://hexo.dulada.com/php-basics-4.html">
 <meta property="og:site_name" content="Arley的博客">
-<meta property="og:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
+<meta property="og:description" content="为false的几种情况123456789101112$str = 0.000001;//trueStr = &amp;apos;&amp;apos;; //false$str = &amp;apos; &amp;apos;;//true$str = &amp;apos;0&amp;apos;; //true$str = &amp;apos;0.00000&amp;apos;;//true$str = [];// flase;$str = null;//作为判断">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-18T01:01:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Arley的博客">
-<meta name="twitter:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
+<meta name="twitter:title" content="4.流程控制---为false的几种情况">
+<meta name="twitter:description" content="为false的几种情况123456789101112$str = 0.000001;//trueStr = &amp;apos;&amp;apos;; //false$str = &amp;apos; &amp;apos;;//true$str = &amp;apos;0&amp;apos;; //true$str = &amp;apos;0.00000&amp;apos;;//true$str = [];// flase;$str = null;//作为判断">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -210,60 +211,262 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-php-basics-4" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/hexo-comment-system.html" class="archive-article-date">
-  	<time datetime="2019-02-19T01:18:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/hexo-comment-system.html">yilia主题的hexo博客添加留言评论系统valine</a>
+    <h1 class="article-title" itemprop="name">
+      4.流程控制---为false的几种情况
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/php-basics-4.html" class="archive-article-date">
+  	<time datetime="2017-11-21T00:58:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
+</a>
+        
+             <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+        </span> 
+        
+        
+      </header>
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="为false的几种情况"><a href="#为false的几种情况" class="headerlink" title="为false的几种情况"></a>为false的几种情况</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$str = 0.000001;//true</span><br><span class="line">Str = &apos;&apos;; //false</span><br><span class="line">$str = &apos; &apos;;//true</span><br><span class="line">$str = &apos;0&apos;; //true</span><br><span class="line">$str = &apos;0.00000&apos;;//true</span><br><span class="line">$str = [];// flase;</span><br><span class="line">$str = null;//作为判断时为false</span><br><span class="line">if()&#123;</span><br><span class="line">    echo &apos;这是真空间&apos;</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    echo &apos;false&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>为false的几种情况</p>
+<ol>
+<li>整型的0 在进行判断时候为假，</li>
+<li>如果浮点的0.00000000都是假的 只要后面有一个非零的数字即为真</li>
+<li>空字符串为假’’  如果中间有一个字符都是真哪怕是一个空格</li>
+<li>空字符串的0 即为假  其他皆为真</li>
+<li>空数组为假</li>
+<li>null作为判断条件时是假</li>
+<li><h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h3><h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$randNum = mt_rand(1,7);</span><br><span class="line"></span><br><span class="line">switch($randNum)&#123;</span><br><span class="line">    case 1 :</span><br><span class="line">    case 2 :</span><br><span class="line">        echo &apos;this is num 2 &apos;;</span><br><span class="line">        break;</span><br><span class="line">    case 3 :</span><br><span class="line">        echo &apos;this is num3&apos;;</span><br><span class="line">        break;</span><br><span class="line">    case 4 :</span><br><span class="line">        echo &apos;num 4&apos;;</span><br><span class="line">        brak;</span><br><span class="line">    default:</span><br><span class="line">        echo &apos;other&apos;;</span><br><span class="line">        break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="if-else"><a href="#if-else" class="headerlink" title="if else"></a>if else</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if()&#123;</span><br><span class="line">    </span><br><span class="line">&#125;else if&#123;</span><br><span class="line">    </span><br><span class="line">&#125;else if&#123;</span><br><span class="line">    </span><br><span class="line">&#125;else&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="for-do-while-while"><a href="#for-do-while-while" class="headerlink" title="for do while while"></a>for do while while</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">for ($i = 0;$i&lt;3;$i++)&#123;</span><br><span class="line">    echo $i.&apos;&lt;br /&gt;&apos;;</span><br><span class="line">&#125;</span><br><span class="line">---</span><br><span class="line">$i = 0;</span><br><span class="line">while ($i&lt;3)&#123;</span><br><span class="line">    echo $i.&apos;&lt;br /&gt;&apos;;</span><br><span class="line">    $i++;</span><br><span class="line">&#125;</span><br><span class="line">--</span><br><span class="line">do &#123;</span><br><span class="line">    echo $i.&apos;&lt;br/&gt;&apos;;</span><br><span class="line">    $i++;</span><br><span class="line">&#125;while($i&lt;3);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">for($i = 0;$i&lt;5;$i++)&#123;</span><br><span class="line">    if($i == 2)&#123;</span><br><span class="line">        break;</span><br><span class="line">    &#125;</span><br><span class="line">    echo $i.&apos;&lt;br /&gt;&apos;;//0 1 2</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">for($i = 0 ;$i&lt;5;$i++)&#123;</span><br><span class="line">    if($i == 3)&#123;</span><br><span class="line">        continue; //符合条件终止此次循环，并且继续循环，直到循环条件不成立结束</span><br><span class="line">    &#125;</span><br><span class="line">    echo $i.&apos;&lt;br /&gt;&apos;;//0 1 2 4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>双层循环<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for($i = 0; $i&lt;3;$i++)&#123;</span><br><span class="line">    for($j = 0;$j&lt;$i;$j++)&#123;</span><br><span class="line">        echo $j.&apos;&lt;br/&gt;&apos;;</span><br><span class="line">    &#125;</span><br><span class="line">    echo &apos;$i的值是&apos;.$i;</span><br><span class="line">    echo &apos;&lt;br/&gt;&apos;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <!-- <img src="//pan.baidu.com/share/qrcode?url=https://hexo.dulada.com/php-basics-4.html" alt="微信分享二维码"> -->
+      <img src="http://bshare.optimix.asia/barCode?site=weixin&url=https://hexo.dulada.com/php-basics-4.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/php-basics-5.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          5.函数
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/php-basics-3.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">3.系统常量与运算符</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#为false的几种情况"><span class="toc-number">1.</span> <span class="toc-text">为false的几种情况</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#流程控制"><span class="toc-number"></span> <span class="toc-text">流程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#switch"><span class="toc-number">1.</span> <span class="toc-text">switch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#if-else"><span class="toc-number">2.</span> <span class="toc-text">if else</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for-do-while-while"><span class="toc-number">3.</span> <span class="toc-text">for do while while</span></a></li></ol>
+                    </li></div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+    <section id="comments" class="comments">
+      <style>
+        .comments {
+          margin: 30px;
+          padding: 10px;
+          background: #fff
+        }
+  
+        @media screen and (max-width:800px) {
+          .comments {
+            margin: auto;
+            padding: 10px;
+            background: #fff
+          }
+        }
+      </style>
+      <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'false' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "bOJwV7Fp9sTeU13FHU8Hn3JA-gzGzoHsz",
+            app_key: "TReyM4HINmTQqhqgFzMax2Ix",
+            placeholder: "Just go go",
+            avatar:"monsterid"
+        });
+   
+</script>
+    </section>
+    
+  
+  
   
 
-    
+  
+
+  
+
+  
+
+
+
 
 
           </div>
@@ -346,9 +549,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
