@@ -212,20 +212,20 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hexo-comment-system" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-go-basics-4" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/hexo-comment-system.html">yilia主题的hexo博客添加留言评论系统valine</a>
+      <a class="article-title" href="/go-basics-4.html">go-day4-channel</a>
     </h1>
   
 
         
-        <a href="/hexo-comment-system.html" class="archive-article-date">
-  	<time datetime="2019-02-19T01:18:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-19</time>
+        <a href="/go-basics-4.html" class="archive-article-date">
+  	<time datetime="2019-05-21T14:05:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-21</time>
 </a>
         
         
@@ -234,11 +234,15 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>yilia 主题的hexo博客 安装留言评论系统之valine</p>
-<p>安装完yilia主题的hexo博客,自带的留言评论系统貌似都不能用，然后找到了<a href="https://valine.js.org/index.html" target="_blank" rel="noopener">valine</a>和<a href="http://www.disqus.com/" target="_blank" rel="noopener">disqus</a>（需要翻墙）</p>
-<h5 id="首先打开valine-官网：https-valine-js-org"><a href="#首先打开valine-官网：https-valine-js-org" class="headerlink" title="首先打开valine 官网：https://valine.js.org/"></a>首先打开valine 官网：<a href="https://valine.js.org/" target="_blank" rel="noopener">https://valine.js.org/</a></h5><p>valine的介绍是：【是一款基于Leancloud的快速、简洁且高效的无后端评论系统。】</p>
+        <p> 定义channel：make（chan 类型，容量）</p>
+<pre><code>ch :=  make （chan string）:
+
+写端：     ch &lt;- &quot;hehe&quot;    。写端写数据，读端不在读。写端阻塞
+
+读端：    str := &lt;- ch    。读端读数据， 同时写端不在写，读端阻塞。
+</code></pre>
         
-          <a class="article-more-a" href="/hexo-comment-system.html#more">more >></a>
+          <a class="article-more-a" href="/go-basics-4.html#more">more >></a>
         
       
 
@@ -252,7 +256,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -262,7 +266,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/hexo-comment-system.html">展开全文 >></a>
+          <a class="article-more-a" href="/go-basics-4.html">展开全文 >></a>
         </p>
       
 
@@ -295,20 +299,20 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-20190216" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-go-basics-3" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/20190216.html">Hello World</a>
+      <a class="article-title" href="/go-basics-3.html">go-day3-Goroutine&amp;channel</a>
     </h1>
   
 
         
-        <a href="/20190216.html" class="archive-article-date">
-  	<time datetime="2019-02-16T12:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-16</time>
+        <a href="/go-basics-3.html" class="archive-article-date">
+  	<time datetime="2019-05-16T12:05:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-16</time>
 </a>
         
         
@@ -317,12 +321,14 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这个博客，终于还是安排上了…</p>
-<p>间歇性拿起放下，折腾一周…</p>
-<p>一个农民，通过自身努力终于分到了一块地，不再需要在地主的土地上创造流量价值时，于是翻身作主的他可以宣告说：Hello World。当然这个农民确切来说是个码农。</p>
-<p>感谢Litten提供的yilia主题。我很喜欢这种色调。</p>
-<p>然后之前各处的笔记都可以转移过来了，有道云居多，在此感谢有道云笔记~~~</p>
-
+        <p>1S = 1000ms<br>1ms = 1000us<br>1us = 1000ns</p>
+<p>并行： 借助多核 cpu 实现。            （真 并行）</p>
+<p>并发：<br>    宏观：用户体验上，程序在并行执行。</p>
+<pre><code>微观：多个计划任务，顺序执行。在飞快的切换。轮换使用 cpu 时间轮片。         【假 并行】
+</code></pre>
+        
+          <a class="article-more-a" href="/go-basics-3.html#more">more >></a>
+        
       
 
       
@@ -335,7 +341,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -345,7 +351,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/20190216.html">展开全文 >></a>
+          <a class="article-more-a" href="/go-basics-3.html">展开全文 >></a>
         </p>
       
 
@@ -378,20 +384,20 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-php-Advanced-combat-1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-go-basics-2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/php-Advanced-combat-1.html">1.验证码实例化</a>
+      <a class="article-title" href="/go-basics-2.html">go-day2-结构体</a>
     </h1>
   
 
         
-        <a href="/php-Advanced-combat-1.html" class="archive-article-date">
-  	<time datetime="2018-01-11T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-11</time>
+        <a href="/go-basics-2.html" class="archive-article-date">
+  	<time datetime="2019-05-14T11:03:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-14</time>
 </a>
         
         
@@ -400,13 +406,15 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="封装类原则"><a href="#封装类原则" class="headerlink" title="封装类原则"></a>封装类原则</h4><ol>
-<li>对外公开的方法只有一个，只要调用这个方法，就可以将验证码显示到浏览器，其他的为这个类服务的方法设置为protected，供子类来继承和重写</li>
-<li>有些变量在该类里面会被反复的使用到，我们将其保存为成员属性，将不用的成员属性设置为protected</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">验证码个数 $number;</span><br><span class="line">验证码类型 $codeType;</span><br><span class="line">验证码图像的宽度 $width;</span><br><span class="line">验证码图像的高度 $height;</span><br><span class="line">验证码 $code;</span><br><span class="line">图像资源 $image;</span><br></pre></td></tr></table></figure>
+        <p>结构体：<br>    是一种数据  类型。</p>
+<pre><code>type Person struct {        —— 类型定义 （地位等价于 int byte bool string ....） 通常放在全局位置。
+    name string 
+    sex  byte
+    age int
+}
+</code></pre>
         
-          <a class="article-more-a" href="/php-Advanced-combat-1.html#more">more >></a>
+          <a class="article-more-a" href="/go-basics-2.html#more">more >></a>
         
       
 
@@ -420,7 +428,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -430,7 +438,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/php-Advanced-combat-1.html">展开全文 >></a>
+          <a class="article-more-a" href="/go-basics-2.html">展开全文 >></a>
         </p>
       
 
@@ -463,20 +471,20 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-php-high-level-syntax-6" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-go-basics-1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/php-high-level-syntax-6.html">6.trait与命名空间</a>
+      <a class="article-title" href="/go-basics-1.html">go-day1-指针</a>
     </h1>
   
 
         
-        <a href="/php-high-level-syntax-6.html" class="archive-article-date">
-  	<time datetime="2017-12-11T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-11</time>
+        <a href="/go-basics-1.html" class="archive-article-date">
+  	<time datetime="2019-05-11T11:03:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-11</time>
 </a>
         
         
@@ -485,9 +493,25 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="trait"><a href="#trait" class="headerlink" title="trait"></a>trait</h4><p>用来模拟实现多继承的<br>instance：实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">定义trait 要以trait关键字开头，然后里面的写法和类的写法一模一样</span><br><span class="line">一般情况下，在trait中我们不加成员属性，只有成员方法</span><br><span class="line">trait 不能实例化</span><br><span class="line">trait 中的方法想让（子类）来使用，该方法必须是public</span><br><span class="line">trait 可以嵌套trait</span><br></pre></td></tr></table></figure></p>
+        <p>指针：</p>
+<pre><code>指针就是地址。 指针变量就是存储地址的变量。
+
+*p ： 解引用、间接引用。
+
+栈帧：    用来给函数运行提供内存空间。 取内存于 stack 上。
+
+    当函数调用时，产生栈帧。函数调用结束，释放栈帧。
+
+    栈帧存储： 1. 局部变量。 2. 形参。 （形参与局部变量存储地位等同） 3. 内存字段描述值
+
+指针使用注意：
+
+    空指针：未被初始化的指针。    var p *int        *p --&gt; err
+
+    野指针：被一片无效的地址空间初始化。
+</code></pre>
         
-          <a class="article-more-a" href="/php-high-level-syntax-6.html#more">more >></a>
+          <a class="article-more-a" href="/go-basics-1.html#more">more >></a>
         
       
 
@@ -501,7 +525,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -511,7 +535,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/php-high-level-syntax-6.html">展开全文 >></a>
+          <a class="article-more-a" href="/go-basics-1.html">展开全文 >></a>
         </p>
       
 
@@ -544,20 +568,20 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-php-high-level-syntax-5" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-go-11" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/php-high-level-syntax-5.html">5.抽象类与接口</a>
+      <a class="article-title" href="/go-11.html">go-day11</a>
     </h1>
   
 
         
-        <a href="/php-high-level-syntax-5.html" class="archive-article-date">
-  	<time datetime="2017-12-10T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-10</time>
+        <a href="/go-11.html" class="archive-article-date">
+  	<time datetime="2019-04-19T13:38:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-19</time>
 </a>
         
         
@@ -566,14 +590,14 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line">oracle</span><br><span class="line">sqlserver</span><br><span class="line">db2</span><br><span class="line">通用的东西放在一块，写一个父类</span><br><span class="line">不同的东西各自的子类自己来实现</span><br></pre></td></tr></table></figure>
+        <p>golang ing….文本文件处理<br>
         
-          <a class="article-more-a" href="/php-high-level-syntax-5.html#more">more >></a>
+          <a class="article-more-a" href="/go-11.html#more">more >></a>
         
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -582,7 +606,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -592,7 +616,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/php-high-level-syntax-5.html">展开全文 >></a>
+          <a class="article-more-a" href="/go-11.html">展开全文 >></a>
         </p>
       
 
@@ -625,20 +649,20 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-php-high-level-syntax-4" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-go-10" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/php-high-level-syntax-4.html">4.常量、静态属性、静态方法</a>
+      <a class="article-title" href="/go-10.html">go-day10</a>
     </h1>
   
 
         
-        <a href="/php-high-level-syntax-4.html" class="archive-article-date">
-  	<time datetime="2017-12-09T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-09</time>
+        <a href="/go-10.html" class="archive-article-date">
+  	<time datetime="2019-04-15T11:56:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-15</time>
 </a>
         
         
@@ -647,17 +671,14 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>常量</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const   PI = 3.14;</span><br><span class="line">调用方法：</span><br><span class="line">    类外部：  类名::常量名 （或者 $obj::常量名）</span><br><span class="line">    类内部：  self::常量名  （或者 $this::常量名）</span><br><span class="line">self ： 就是当前类名</span><br><span class="line">在类外部可以使用define和const定义常量。但是在类内部只能使用const定义常量</span><br><span class="line">【注】常量前面不能加修饰符</span><br></pre></td></tr></table></figure>
+        <p>golang ing….<br>
         
-          <a class="article-more-a" href="/php-high-level-syntax-4.html#more">more >></a>
+          <a class="article-more-a" href="/go-10.html#more">more >></a>
         
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -666,7 +687,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -676,7 +697,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/php-high-level-syntax-4.html">展开全文 >></a>
+          <a class="article-more-a" href="/go-10.html">展开全文 >></a>
         </p>
       
 
@@ -709,20 +730,20 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-php-high-level-syntax-3" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-go-9" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/php-high-level-syntax-3.html">3.魔术方法</a>
+      <a class="article-title" href="/go-9.html">go-day9</a>
     </h1>
   
 
         
-        <a href="/php-high-level-syntax-3.html" class="archive-article-date">
-  	<time datetime="2017-12-08T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-08</time>
+        <a href="/go-9.html" class="archive-article-date">
+  	<time datetime="2019-04-13T12:44:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-13</time>
 </a>
         
         
@@ -731,20 +752,14 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="系统在特定的时机自动调用的方法"><a href="#系统在特定的时机自动调用的方法" class="headerlink" title="系统在特定的时机自动调用的方法"></a>系统在特定的时机自动调用的方法</h4><ol>
-<li>常用的魔术方法</li>
-</ol>
-<ul>
-<li>get /set<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">__get </span><br><span class="line">    触发时机：对象在外部访问私有成员或者受保护的属性时调用</span><br><span class="line">    该方法有一个参数：参数就是属性名</span><br><span class="line">__set</span><br><span class="line">    触发时机：对象在外部设置私有或者受保护成员值得时候调用</span><br><span class="line">    该方法有两个参数：</span><br><span class="line">    参数1：成员的属性名</span><br><span class="line">    参数2：要设置的值</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+        <p>接口。。。。。。golang ing….<br>
         
-          <a class="article-more-a" href="/php-high-level-syntax-3.html#more">more >></a>
+          <a class="article-more-a" href="/go-9.html#more">more >></a>
         
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -753,7 +768,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -763,7 +778,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/php-high-level-syntax-3.html">展开全文 >></a>
+          <a class="article-more-a" href="/go-9.html">展开全文 >></a>
         </p>
       
 
@@ -796,20 +811,20 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-php-high-level-syntax-2" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-go-8" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/php-high-level-syntax-2.html">2.继承</a>
+      <a class="article-title" href="/go-8.html">go-day8</a>
     </h1>
   
 
         
-        <a href="/php-high-level-syntax-2.html" class="archive-article-date">
-  	<time datetime="2017-12-07T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-07</time>
+        <a href="/go-8.html" class="archive-article-date">
+  	<time datetime="2019-04-10T13:14:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
 </a>
         
         
@@ -818,17 +833,14 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><h6 id="认识理解"><a href="#认识理解" class="headerlink" title="认识理解"></a>认识理解</h6><p>子类属性多于父类</p>
-<h6 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h6><p>继承  派生<br><br>父类 ==》 子类</p>
-<p>基类 ==》 派生类</p>
-<p>单继承  子类只能有一个父类</p>
+        <p>面向象之方法。。。。。。别看了….<br>
         
-          <a class="article-more-a" href="/php-high-level-syntax-2.html#more">more >></a>
+          <a class="article-more-a" href="/go-8.html#more">more >></a>
         
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -837,7 +849,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -847,7 +859,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/php-high-level-syntax-2.html">展开全文 >></a>
+          <a class="article-more-a" href="/go-8.html">展开全文 >></a>
         </p>
       
 
@@ -880,20 +892,20 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-php-high-level-syntax-1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-go-7" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/php-high-level-syntax-1.html">1.类和对象的概念</a>
+      <a class="article-title" href="/go-7.html">go-day7</a>
     </h1>
   
 
         
-        <a href="/php-high-level-syntax-1.html" class="archive-article-date">
-  	<time datetime="2017-12-06T01:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-06</time>
+        <a href="/go-7.html" class="archive-article-date">
+  	<time datetime="2019-04-08T11:49:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-08</time>
 </a>
         
         
@@ -902,14 +914,14 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="类是抽象的概念，对象才是具体的事物"><a href="#类是抽象的概念，对象才是具体的事物" class="headerlink" title="类是抽象的概念，对象才是具体的事物"></a>类是抽象的概念，对象才是具体的事物</h1><p>人类：抽象的概念；<br>对象：科比、韦德；</p>
+        <p>太基础了，不值得看。。。。。。翻滚吧~别留在电脑里了….<br>
         
-          <a class="article-more-a" href="/php-high-level-syntax-1.html#more">more >></a>
+          <a class="article-more-a" href="/go-7.html#more">more >></a>
         
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -918,7 +930,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -928,7 +940,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/php-high-level-syntax-1.html">展开全文 >></a>
+          <a class="article-more-a" href="/go-7.html">展开全文 >></a>
         </p>
       
 
@@ -961,20 +973,20 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-php-basics-13" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-go-6" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/php-basics-13.html">13.正则</a>
+      <a class="article-title" href="/go-6.html">go-day6</a>
     </h1>
   
 
         
-        <a href="/php-basics-13.html" class="archive-article-date">
-  	<time datetime="2017-11-26T01:18:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-26</time>
+        <a href="/go-6.html" class="archive-article-date">
+  	<time datetime="2019-04-05T13:01:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-05</time>
 </a>
         
         
@@ -983,17 +995,14 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="正则"><a href="#正则" class="headerlink" title="正则"></a>正则</h4><h6 id="定界符-推荐使用"><a href="#定界符-推荐使用" class="headerlink" title="定界符 推荐使用//"></a>定界符 推荐使用//</h6><blockquote>
-<p>以下   不能做定界符<br><br>a-z A-Z 0-9 空格 \</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$str = &apos;abede&apos;;</span><br><span class="line"></span><br><span class="line">$pattern = &apos;/abc/&apos;;</span><br><span class="line"></span><br><span class="line">var_dump(preg_match($pattern,$str,$match));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var_dump();</span><br></pre></td></tr></table></figure>
+        <p>太基础了，不值得看。。。。。。我又来传了~~~<br>
         
-          <a class="article-more-a" href="/php-basics-13.html#more">more >></a>
+          <a class="article-more-a" href="/go-6.html#more">more >></a>
         
       
 
       
-    </div>
+    </p></div>
     <div class="article-info article-info-index">
       
       
@@ -1002,7 +1011,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">golang</a>
         		</li>
       		
 		</ul>
@@ -1012,7 +1021,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/php-basics-13.html">展开全文 >></a>
+          <a class="article-more-a" href="/go-6.html">展开全文 >></a>
         </p>
       
 
@@ -1047,7 +1056,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -1216,11 +1225,39 @@ mathjax: true
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">golang</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ThinkPHP5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">es6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
             
             <div class="clearfix"></div>
