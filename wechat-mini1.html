@@ -26,18 +26,42 @@
       </style>
 
   
-  <meta name="description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
+  <meta name="description" content="小程序框架结构 开发工具 微信web开发者工具 vscode编辑器  vscode需要安装俩插件：wechat-snippet|wepy snippets">
 <meta name="keywords" content="Mini Program,小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信小程序1">
 <meta property="og:url" content="https://hexo.dulada.com/wechat-mini1.html">
 <meta property="og:site_name" content="Arley的博客">
-<meta property="og:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
+<meta property="og:description" content="小程序框架结构 开发工具 微信web开发者工具 vscode编辑器  vscode需要安装俩插件：wechat-snippet|wepy snippets">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-27T06:46:22.000Z">
+<meta property="og:image" content="http://res.dulada.com/wechat/%E5%9B%BE%E7%89%871.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/%E5%9B%BE%E7%89%872.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/%E5%9B%BE%E7%89%873.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/%E5%9B%BE%E7%89%874.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/%E5%9B%BE%E7%89%875.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic6.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic7.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic8.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic9.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic10.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic11.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic12.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic13.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic14.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic15.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic16.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic17.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic18.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic19.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic20.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic21.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic22.png">
+<meta property="og:image" content="http://res.dulada.com/wechat/pic23.png">
+<meta property="og:updated_time" content="2019-07-27T07:03:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信小程序1">
-<meta name="twitter:description" content="I asked the Buddha, why I love her, but she did not love me, but the Buddha smiling down silent reading Amitabha.">
+<meta name="twitter:description" content="小程序框架结构 开发工具 微信web开发者工具 vscode编辑器  vscode需要安装俩插件：wechat-snippet|wepy snippets">
+<meta name="twitter:image" content="http://res.dulada.com/wechat/%E5%9B%BE%E7%89%871.png">
   
   
     <link rel="icon" href="/assets/img/favicon.ico">
@@ -237,7 +261,191 @@ var _hmt = _hmt || [];
 
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h5 id="小程序框架结构"><a href="#小程序框架结构" class="headerlink" title="小程序框架结构"></a>小程序框架结构</h5><p><img src="http://res.dulada.com/wechat/%E5%9B%BE%E7%89%871.png" alt="image"></p>
+<h5 id="开发工具"><a href="#开发工具" class="headerlink" title="开发工具"></a>开发工具</h5><ul>
+<li><a href="http://t.cn/RrKI5a3" target="_blank" rel="noopener">微信web开发者工具</a></li>
+<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener">vscode编辑器</a><br>  vscode需要安装俩插件：wechat-snippet|wepy snippets<a id="more"></a>
+<h4 id="小程序的文件结构及配置"><a href="#小程序的文件结构及配置" class="headerlink" title="小程序的文件结构及配置"></a>小程序的文件结构及配置</h4>通过开发者工具创建了【建立普通快速启动模板】项目。这个项目里边生成了不同类型的文件:  <strong>标色</strong> 必须不可缺少的文件</li>
+<li>json 后缀的 JSON 配置文件</li>
+<li><strong>wxml 后缀的 WXML 模板文件 类html</strong></li>
+<li>wxss 后缀的 WXSS 样式文件 类css</li>
+<li><strong>js 后缀的 JS 脚本逻辑文件  业务代码所书写的区域</strong><br>小程序包含一个描述整体程序的 app 和多个描述各自页面的 pages。</li>
+</ul>
+<p>一个小程序主体部分由三个文件组成，必须放在项目的根目录，如下：</p>
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th>必填</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>app.js</td>
+<td>是</td>
+<td>小程序逻辑</td>
+</tr>
+<tr>
+<td>app.json</td>
+<td>是</td>
+<td>小程序公共设置</td>
+</tr>
+<tr>
+<td>app.wxss</td>
+<td>否</td>
+<td>小程序公共样式表</td>
+</tr>
+</tbody>
+</table>
+<p>一个小程序page页面由四个文件组成，分别是：<br>文件类型 |必填|    作用<br>—|—|—<br>js| 是|页面逻辑<br>wxml| 是|页面结构<br>wxss| 否|页面样式表<br>json| 否|页面配置</p>
+<p><strong>注意：为了方便开发者减少配置项，描述页面的四个文件必须具有相同的路径与文件名</strong><br><img src="http://res.dulada.com/wechat/%E5%9B%BE%E7%89%872.png" alt="image"></p>
+<h4 id="小程序配置-app-json"><a href="#小程序配置-app-json" class="headerlink" title="小程序配置 app.json"></a>小程序配置 app.json</h4><p>参考网址：<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/config.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/framework/config.html</a></p>
+<p><strong>app.json</strong>文件用来对微信小程序进行全局配置，决定页面文件的路径、窗口表现、设置网络超时时间、设置多 tab [底部或顶部菜单]等。</p>
+<p><strong>app.json中不能添加任何注释，key和value必须用双引号引起来，否则会报错。</strong></p>
+<h4 id="app-json-配置项列表"><a href="#app-json-配置项列表" class="headerlink" title="app.json 配置项列表"></a>app.json 配置项列表</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必填</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pages</td>
+<td>String Array</td>
+<td>是</td>
+<td>设置页面路径</td>
+</tr>
+<tr>
+<td>window</td>
+<td>Object</td>
+<td>否</td>
+<td>设置默认页面的窗口表现</td>
+</tr>
+<tr>
+<td>tabBar</td>
+<td>Object</td>
+<td>否</td>
+<td>设置底部 tab 的表现</td>
+</tr>
+<tr>
+<td>networkTimeout</td>
+<td>Object</td>
+<td>否</td>
+<td>设置网络超时时间</td>
+</tr>
+<tr>
+<td>debug</td>
+<td>Boolean</td>
+<td>否</td>
+<td>设置是否开启 debug 模式</td>
+</tr>
+</tbody>
+</table>
+<h5 id="pages"><a href="#pages" class="headerlink" title="pages"></a>pages</h5><p>接受一个<strong>数组</strong>，每一项都是字符串，来指定小程序由哪些页面组成。每一项代表对应页面的【<strong>路径+目录名+文件名</strong>(不包含后缀名)】信息，数组的第一项代表小程序的初始页面(首页)。小程序中新增/减少页面，都需要对 pages 数组进行修改。</p>
+<p><strong>注：数组的第一项为小程序初始页面</strong><br><img src="http://res.dulada.com/wechat/%E5%9B%BE%E7%89%873.png" alt="image"></p>
+<h5 id="window"><a href="#window" class="headerlink" title="window"></a>window</h5><p><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/config.html#全局配置" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/framework/config.html#全局配置</a><br>用于设置小程序的状态栏、导航条、标题、窗口背景色。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注：HexColor（十六进制颜色值），如&quot;#ff00ff&quot;</span><br><span class="line">注：navigationStyle 只在 app.json 中生效。开启 custom 后，低版本客户端需要做好兼容。开发者工具基础库版本切到 1.7.0（不代表最低版本，只供调试用）可方便切到旧视觉</span><br><span class="line">注：客户端 6.7.2 版本开始，navigationStyle: custom 对 &lt;web-view&gt; 组件无效</span><br></pre></td></tr></table></figure>
+<h5 id="tabBar"><a href="#tabBar" class="headerlink" title="tabBar"></a>tabBar</h5><p>如果小程序是一个多 tab 应用（客户端窗口的底部或顶部有 tab 栏可以切换页面），可以通过 tabBar 配置项指定 tab 栏的表现，以及 tab 切换时显示的对应页面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注：</span><br><span class="line">当设置 position 为 top 时，将不会显示 icon</span><br><span class="line">tabBar 中的 list 是一个数组，只能配置最少2个、最多5个 tab，tab 按数组的顺序排序。</span><br><span class="line">不属于 tabBar 的页面不会显示 tabBar</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pagePath</td>
+<td>String</td>
+<td>是</td>
+<td>页面路径，必须在 pages 中先定义</td>
+</tr>
+<tr>
+<td>text</td>
+<td>String</td>
+<td>是</td>
+<td>tab 上按钮文字</td>
+</tr>
+<tr>
+<td>iconPath</td>
+<td>String</td>
+<td>否</td>
+<td>图片路径，icon 大小限制为40kb，建议尺寸为 81px * 81px，当 postion 为 top 时，此参数无效，不支持网络图片</td>
+</tr>
+<tr>
+<td>selectedIconPath</td>
+<td>String</td>
+<td>否</td>
+<td>选中时的图片路径，icon 大小限制为40kb，建议尺寸为 81px * 81px ，当 postion 为 top 时，此参数无效</td>
+</tr>
+</tbody>
+</table>
+<p><img src="http://res.dulada.com/wechat/%E5%9B%BE%E7%89%874.png" alt="image"><br><img src="http://res.dulada.com/wechat/%E5%9B%BE%E7%89%875.png" alt="image"></p>
+<h5 id="networkTimeout"><a href="#networkTimeout" class="headerlink" title="networkTimeout"></a>networkTimeout</h5><p>可以设置各种网络请求的超时时间。<br>属性说明：<br>属性|    类型|    必填|    说明<br>—|—|—|—<br>request|    Number|    否|wx.request的超时时间，单位毫秒，默认为：60000<br>connectSocket|    Number|    否|wx.connectSocket的超时时间，单位毫秒，默认为：60000<br>uploadFile|    Number|    否|wx.uploadFile的超时时间，单位毫秒，默认为：60000<br>downloadFile|    Number|    否|wx.downloadFile的超时时间，单位毫秒，默认为：60000</p>
+<h5 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h5><p>可以在开发者工具中开启 debug 模式，在开发者工具的控制台面板，调试信息以 info 的形式给出，其信息有Page的注册，页面路由，数据更新，事件触发 。 可以帮助开发者快速定位一些常见的问题。<br>说明了，开发阶段，就要打开debug。上线时请关闭此选项，设置为false</p>
+<h4 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h4><h5 id="onLoad-Object-query"><a href="#onLoad-Object-query" class="headerlink" title="onLoad(Object query)"></a>onLoad(Object query)</h5><p>页面加载时触发。一个页面只会调用一次，可以在 onLoad 的参数中获取打开当前页面路径中的参数。<br>参数说明<br>名称|    类型|    说明<br>—|—|—<br>query|    Object|    打开当前页面路径中的参数  json对象</p>
+<h5 id="onShow"><a href="#onShow" class="headerlink" title="onShow()"></a>onShow()</h5><p>页面显示/切入前台时触发。</p>
+<h5 id="onReady"><a href="#onReady" class="headerlink" title="onReady()"></a>onReady()</h5><p>页面<strong>初次</strong>渲染完成时触发。一个页面只会调用一次，代表页面已经准备妥当，可以和视图层进行交互。</p>
+<p><strong>注意：对界面内容进行设置的 API 如wx.setNavigationBarTitle，请在onReady之后进行。详见生命周期</strong></p>
+<h5 id="onHide"><a href="#onHide" class="headerlink" title="onHide()"></a>onHide()</h5><p>页面隐藏/切入后台时触发。 如 navigateTo 或底部 tab 切换到其他页面，小程序切入后台等。</p>
+<h5 id="onUnload"><a href="#onUnload" class="headerlink" title="onUnload()"></a>onUnload()</h5><p>页面卸载时触发。如redirectTo或navigateBack到其他页面时。</p>
+<h4 id="视图结构-wxml"><a href="#视图结构-wxml" class="headerlink" title="视图结构 wxml"></a>视图结构 wxml</h4><p>WXML 充当的就是类似 HTML 的角色。<br>WXML和HTML不同点：</p>
+<ul>
+<li>标签名字有点不一样</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">多了一些 wx:if 这样的属性以及 &#123;&#123; &#125;&#125;这样的表达式</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>小程序提倡把渲染和逻辑分离，简单来说就是不要再让 JS 直接操控 DOM，JS只需要负责数据的处理，然后再通过一种模板语法来进行界面结构展示。<br>将js文件中的数据传递到视图层中方法  (异步改就数据)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">this.setData(&#123; msg: &quot;Hello World&quot; &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在视图层中显示数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;view&gt;&#123;&#123;变量&#125;&#125;&lt;/view&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">通过 **&#123;&#123; &#125;&#125;** 的语法把一个变量绑定到界面上，我们称为==数据绑定。==</span><br><span class="line">仅仅通过数据绑定还不够的，还需要 if/else, for等控制能力，在小程序里边，这些控制能力都用 **wx:** 开头的属性来表达。</span><br></pre></td></tr></table></figure>
+<p><img src="http://res.dulada.com/wechat/pic6.png" alt="image"><br><img src="http://res.dulada.com/wechat/pic7.png" alt="image"><br><img src="http://res.dulada.com/wechat/pic8.png" alt="image"></p>
+<h5 id="列表渲染-for"><a href="#列表渲染-for" class="headerlink" title="列表渲染 for"></a>列表渲染 for</h5><p>语法：wx:for</p>
+<ul>
+<li>wx:for-index可以指定数组当前下标的变量名 默认名为 index</li>
+<li>wx:for-item 可以指定数组当前元素的变量名  默认名为 item</li>
+<li>wx:key  可以定义也可以不定义   唯一的标识符<br><img src="http://res.dulada.com/wechat/pic9.png" alt="image"><br><img src="http://res.dulada.com/wechat/pic10.png" alt="image"><br><img src="http://res.dulada.com/wechat/pic11.png" alt="image"></li>
+</ul>
+<h5 id="条件渲染"><a href="#条件渲染" class="headerlink" title="条件渲染"></a>条件渲染</h5><p>语法：wx:if<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在框架中，使用 wx:if=&quot;&#123;&#123;condition&#125;&#125;&quot; 来判断是否需要渲染该代码块：</span><br></pre></td></tr></table></figure></p>
+<p>也可以用 wx:elif 和 wx:else 来添加一个 else 块：<br><img src="http://res.dulada.com/wechat/pic12.png" alt="image"><br><img src="http://res.dulada.com/wechat/pic13.png" alt="image"><br><img src="http://res.dulada.com/wechat/pic14.png" alt="image"><br><img src="http://res.dulada.com/wechat/pic15.png" alt="image"></p>
+<h5 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h5><p>WXML提供模板（template），可以在模板中定义代码片段，然后在不同的地方调用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用 name 属性，作为模板的名字。然后在&lt;template/&gt;内定义代码片段，如：</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">调用 is 指定name的名称  data指定控制层传过来的数据 一定要用&#123;&#123;&#125;&#125;括起来</span><br></pre></td></tr></table></figure>
+<p><img src="http://res.dulada.com/wechat/pic16.png" alt="image"><br><img src="http://res.dulada.com/wechat/pic17.png" alt="image"><br><img src="http://res.dulada.com/wechat/pic18.png" alt="image"><br><img src="http://res.dulada.com/wechat/pic19.png" alt="image"></p>
+<h5 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h5><p>简单理解：把模板定义到外部，然后大家共享，多个页面间，就可以共用。<br><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/import.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/import.html</a></p>
+<p>WXML 提供两种文件引用方式import和include    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;import src= &quot;a.wxml&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;include src=&quot;header.wxml&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>两者的区别</p>
+<ul>
+<li>import是引用过来，需要template调用，而include引入是直接把代码复制过来一份。</li>
+<li>import定义的时候是需要template标签，而include是不需要。</li>
+<li>import是不可以嵌套的，而include是可以嵌套的。<br><img src="http://res.dulada.com/wechat/pic20.png" alt="image"></li>
+</ul>
+<h5 id="小程序的样式"><a href="#小程序的样式" class="headerlink" title="小程序的样式"></a>小程序的样式</h5><p>WXSS 具有 CSS 大部分特性。同时为了更适合开发微信小程序，WXSS 对 CSS 进行了扩充以及修改。</p>
+<ul>
+<li>新增了尺寸单位<br>WXSS 在底层支持新的尺寸单位 rpx ，开发者可以免去换算的烦恼，只要交给小程序底层来换算即可，由于换算采用的浮点数运算，所以运算结果会和预期结果有一点点偏差。</li>
+<li>提供了全局的样式和局部样式<br>你可以写一个 app.wxss 作为全局样式，会作用于当前小程序的所有页面，局部页面样式 page.wxss 仅对当前页面生效。</li>
+<li>此外 WXSS 仅支持部分 CSS 选择器</li>
+</ul>
+<h5 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h5><p>目前支持的选择器有：<br>选择器|    样例|    样例描述|<br>—|—|—<br>.class|    .intro    |选择所有拥有 class=”intro” 的组件</p>
+<p>#id    |#firstname    |选择拥有 id=”firstname” 的组件<br>element|    view    |选择所有 view 组件<br>element, element|    view, checkbox    |选择所有文档的 view 组件和所有的 checkbox 组件<br>::after    |view::after    |在 view 组件后边插入内容<br>::before|    view::before    |在 view 组件前边插入内容<br><img src="http://res.dulada.com/wechat/pic21.png" alt="image"></p>
+<h5 id="尺寸单位"><a href="#尺寸单位" class="headerlink" title="尺寸单位"></a>尺寸单位</h5><p>rpx（responsive pixel）: 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。</p>
+<p>建议： 开发微信小程序时设计师可以用 iPhone6 作为视觉稿的标准。</p>
+<p>在日后的小程序开发中，我们的统一的单位是 rpx 不要使用 px作为单位</p>
+<h5 id="全局样式与局部样式"><a href="#全局样式与局部样式" class="headerlink" title="全局样式与局部样式"></a>全局样式与局部样式</h5><p>定义在 app.wxss 中的样式为全局样式，作用于每一个页面。</p>
+<p>在 pages 的 wxss 文件中定义的样式为局部样式，只作用在对应的页面，并会覆盖 app.wxss 中相同的选择器。</p>
+<p>样式优先级   行内样式  &gt;  page.wxss  &gt; app.wxss</p>
+<h5 id="样式导入"><a href="#样式导入" class="headerlink" title="样式导入"></a>样式导入</h5><p>使用 @import 语句可以导入外联样式表，@import<br>后跟需要导入的外联样式表的相对路径，用 ; 表示语句结束。<br><img src="http://res.dulada.com/wechat/pic22.png" alt="image"><br><img src="http://res.dulada.com/wechat/pic23.png" alt="image"></p>
+<h5 id="小程序页面布局，使用flex-方便许多-复习之前的flex笔记"><a href="#小程序页面布局，使用flex-方便许多-复习之前的flex笔记" class="headerlink" title="小程序页面布局，使用flex 方便许多 复习之前的flex笔记"></a>小程序页面布局，使用flex 方便许多 复习之前的flex笔记</h5>
       
 
       
@@ -356,11 +564,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/Vue-1.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/wechat-mini2.html" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          第1章 Vue 实例对象
+          微信小程序2
         
       </div>
     </a>
@@ -394,8 +602,8 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
-                    </div>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#小程序框架结构"><span class="toc-number">1.</span> <span class="toc-text">小程序框架结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#开发工具"><span class="toc-number">2.</span> <span class="toc-text">开发工具</span></a></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#小程序的文件结构及配置"><span class="toc-number"></span> <span class="toc-text">小程序的文件结构及配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#小程序配置-app-json"><span class="toc-number"></span> <span class="toc-text">小程序配置 app.json</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#app-json-配置项列表"><span class="toc-number"></span> <span class="toc-text">app.json 配置项列表</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pages"><span class="toc-number">1.</span> <span class="toc-text">pages</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#window"><span class="toc-number">2.</span> <span class="toc-text">window</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tabBar"><span class="toc-number">3.</span> <span class="toc-text">tabBar</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#networkTimeout"><span class="toc-number">4.</span> <span class="toc-text">networkTimeout</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#debug"><span class="toc-number">5.</span> <span class="toc-text">debug</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生命周期"><span class="toc-number"></span> <span class="toc-text">生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#onLoad-Object-query"><span class="toc-number">1.</span> <span class="toc-text">onLoad(Object query)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#onShow"><span class="toc-number">2.</span> <span class="toc-text">onShow()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#onReady"><span class="toc-number">3.</span> <span class="toc-text">onReady()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#onHide"><span class="toc-number">4.</span> <span class="toc-text">onHide()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#onUnload"><span class="toc-number">5.</span> <span class="toc-text">onUnload()</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#视图结构-wxml"><span class="toc-number"></span> <span class="toc-text">视图结构 wxml</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#列表渲染-for"><span class="toc-number">1.</span> <span class="toc-text">列表渲染 for</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#条件渲染"><span class="toc-number">2.</span> <span class="toc-text">条件渲染</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#模板"><span class="toc-number">3.</span> <span class="toc-text">模板</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#引用"><span class="toc-number">4.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#小程序的样式"><span class="toc-number">5.</span> <span class="toc-text">小程序的样式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#选择器"><span class="toc-number">6.</span> <span class="toc-text">选择器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#尺寸单位"><span class="toc-number">7.</span> <span class="toc-text">尺寸单位</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#全局样式与局部样式"><span class="toc-number">8.</span> <span class="toc-text">全局样式与局部样式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#样式导入"><span class="toc-number">9.</span> <span class="toc-text">样式导入</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#小程序页面布局，使用flex-方便许多-复习之前的flex笔记"><span class="toc-number">10.</span> <span class="toc-text">小程序页面布局，使用flex 方便许多 复习之前的flex笔记</span></a></li></ol>
+                    </li></div>
                 </span>
             </div>
         </div>
@@ -632,6 +840,14 @@ mathjax: true
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">flex</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
@@ -712,11 +928,11 @@ mathjax: true
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="https://github.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>全球最大的同性恋聚集地</a>
+              <a href="https://github.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>全球最大的交友聚集地</a>
             </li>
           
             <li class="search-li">
-              <a href="https://gitee.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>国内不错的同性恋聚集地</a>
+              <a href="https://gitee.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>国内不错的交友聚集地</a>
             </li>
           
             <li class="search-li">
